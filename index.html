@@ -1,625 +1,1656 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InfraSwift | Premium Enterprise IT Solutions</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InfraSwift Technologies — Build Smarter. Secure Deeper. Scale Limitlessly.</title>
+  <meta name="description" content="InfraSwift Technologies empowers organizations to modernize infrastructure, strengthen security, and drive digital transformation with future-ready solutions and expert guidance." />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #2599B6;
+
+  <style>
+    :root {
+      --is-blue: #1857d6;
+      --is-blue-dark: #0f3aa0;
+      --is-green: #2bb673;
+      --is-navy: #0a1228;
+      --is-ink: #0f1b35;
+      --is-muted: #6b7689;
+      --is-line: #e7eaf0;
+      --is-bg-soft: #f5f7fb;
+       --primary: #2599B6;
             --primary-dark: #4B71B2;
             --accent: #84B971;
             --success: #84B971;
-            --primary-glow: rgba(37,153,182,0.35);
-            --node-bg: #ffffff;
+            --primary-glow: rgba(37, 153, 182, 0.35);
+              --node-bg: #ffffff;
             --text-dark: #0f172a;
             --text-gray: #64748b;
-            --soft-border: rgba(37,153,182,0.15);
-        }
-        * { box-sizing: border-box; }
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background: #ffffff;
-            overflow-x: hidden;
-            margin: 0;
-        }
+            --soft-border: rgba(37, 153, 182, 0.15);
+    }
+    * { font-family: 'Inter', system-ui, -apple-system, sans-serif; box-sizing: border-box; }
+    html { scroll-behavior: smooth; background: #fff; }
+    body { color: var(--is-ink); overflow-x: hidden; margin: 0; padding: 0; }
+    a { text-decoration: none; }
+    .text-muted-soft { color: var(--is-muted) !important; }
+    .text-blue { color: var(--is-blue) !important; }
+    .text-green { color: var(--is-green) !important; }
 
-        /* ── NAVBAR ── */
+    .section-eyebrow {
+      color: var(--is-blue); font-weight: 700; font-size: .72rem;
+      letter-spacing: .12em; text-transform: uppercase; margin-bottom: 0;
+    }
+    .section-eyebrow.green { color: var(--is-green); }
+
+     /* --- NAVBAR --- */
         .site-nav {
-            position: sticky; top: 0; z-index: 999;
-            background: rgba(255,255,255,0.95);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(14px);
-            border-bottom: 1px solid rgba(0,97,255,0.08);
-            box-shadow: 0 8px 28px rgba(15,23,42,0.05);
+            border-bottom: 1px solid rgba(0, 97, 255, 0.08);
+            box-shadow: 0 8px 28px rgba(15, 23, 42, 0.05);
         }
+
         .nav-shell {
-            min-height: 72px; display: flex; align-items: center;
-            justify-content: space-between; gap: 24px;
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
         }
-        .brand-logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-dark); }
-        .brand-logo img { width: 168px; height: auto; display: block; }
+
+        .brand-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-dark);
+            flex-shrink: 0;
+        }
+
+        .brand-logo img {
+            width: 168px;
+            height: auto;
+            display: block;
+        }
+
         .nav-menu {
-            display: flex; align-items: center; justify-content: center;
-            gap: 20px; margin: 0; padding: 0; list-style: none; flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            flex: 1;
         }
+
         .nav-menu a {
-            display: inline-flex; align-items: center; gap: 6px;
-            color: #1e293b; font-size: 0.8rem; font-weight: 800;
-            text-decoration: none; padding: 8px 2px;
-            transition: color 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #1e293b;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-decoration: none;
+            padding: 10px 2px;
+            transition: color 0.25s ease, transform 0.25s ease;
         }
-        .nav-menu a:hover { color: var(--primary); }
-        .nav-menu i { font-size: 0.6rem; color: #64748b; }
-        .nav-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-        .nav-cta {
-            display: inline-flex; align-items: center; justify-content: center;
-            gap: 8px; min-height: 42px; padding: 0 20px; border-radius: 6px;
-            background: linear-gradient(135deg, var(--primary), var(--success));
-            color: #fff; border: none; font-size: 0.8rem; font-weight: 800;
-            text-decoration: none; transition: transform 0.25s ease;
+
+        .nav-menu a:hover {
+            color: var(--primary);
+            transform: translateY(-1px);
         }
-        .nav-cta:hover { color: #fff; transform: translateY(-2px); }
+
+        .nav-menu i {
+            font-size: 0.62rem;
+            color: #64748b;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+
+         .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            min-height: 46px;
+            padding: 0 22px;
+            border-radius: 6px;
+            background: linear-gradient(135deg,
+                    var(--primary),
+                    var(--success));
+
+            color: #fff;
+            border: none;
+            box-shadow: 0 12px 28px rgba(37, 153, 182, 0.25);
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .nav-cta:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            background: linear-gradient(135deg,
+                    var(--success),
+                    var(--primary));
+        }
+
         .nav-toggle {
-            display: none; width: 40px; height: 40px;
-            border: 1px solid rgba(0,97,255,0.16); border-radius: 8px;
-            background: #fff; color: var(--text-dark); align-items: center; justify-content: center;
+            display: none;
+            width: 42px;
+            height: 42px;
+            border: 1px solid rgba(0, 97, 255, 0.16);
+            border-radius: 10px;
+            background: #fff;
+            color: var(--text-dark);
+            align-items: center;
+            justify-content: center;
         }
 
-        /* ── MEGA MENU ── */
-        .mega-parent { position: relative; }
-        .mega-parent > a i { margin-left: 4px; font-size: 10px; transition: .3s; }
-        .mega-parent:hover > a i { transform: rotate(180deg); }
+        /* =========================
+           MEGA MENU DROPDOWN
+        ========================= */
+
+        .mega-parent {
+            position: relative;
+        }
+
+        .mega-parent>a {
+            position: relative;
+        }
+
+        .mega-parent>a i {
+            margin-left: 6px;
+            font-size: 11px;
+            transition: .3s;
+        }
+
+        .mega-parent:hover>a i {
+            transform: rotate(180deg);
+        }
+
         .mega-menu {
-            position: absolute; top: 100%; left: 50%;
-            transform: translateX(-50%) translateY(15px);
-            width: 1100px; max-width: 95vw;
-            background: rgba(255,255,255,.98); backdrop-filter: blur(20px);
-            border: 1px solid rgba(37,153,182,.15); border-radius: 16px; padding: 28px;
-            display: grid; grid-template-columns: repeat(5,1fr); gap: 24px;
-            opacity: 0; visibility: hidden;
-            box-shadow: 0 25px 60px rgba(15,23,42,.10);
-            transition: .35s ease; z-index: 9999;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+
+            width: 1200px;
+            max-width: 95vw;
+
+            background: rgba(255, 255, 255, .98);
+            backdrop-filter: blur(20px);
+
+            border: 1px solid rgba(37, 153, 182, .15);
+            border-radius: 20px;
+
+            padding: 35px;
+
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+
+            opacity: 0;
+            visibility: hidden;
+
+            box-shadow:
+                0 25px 60px rgba(15, 23, 42, .10),
+                0 10px 30px rgba(37, 153, 182, .08);
+
+            transition: .35s ease;
+
+            z-index: 9999;
         }
+
         .mega-menu::before {
-            content: ''; position: absolute; top: 0; left: 0;
-            width: 100%; height: 3px; border-radius: 16px 16px 0 0;
-            background: linear-gradient(90deg, #2599B6, #84B971);
-        }
-        .mega-parent:hover .mega-menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-        .mega-col { border-right: 1px solid rgba(37,153,182,.12); padding-right: 20px; }
-        .mega-col:last-child { border-right: none; }
-        .mega-col h5 { color: #2599B6; font-size: 16px; font-weight: 800; margin-bottom: 14px; }
-        .mega-col h5::after { content: ''; display: block; width: 50px; height: 2px; margin-top: 8px; background: linear-gradient(90deg,#2599B6,#84B971); border-radius: 10px; }
-        .mega-col a { display: block; color: #334155 !important; text-decoration: none; font-size: 14px; font-weight: 600; padding: 6px 0; transition: .3s ease; }
-        .mega-col a:hover { color: #2599B6 !important; padding-left: 8px; }
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
 
-        /* ── HERO ── */
+            width: 100%;
+            height: 4px;
+
+            border-radius: 20px 20px 0 0;
+
+            background: linear-gradient(90deg,
+                    #2599B6,
+                    #84B971);
+        }
+
+        .mega-parent:hover .mega-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .mega-col {
+            border-right: 1px solid rgba(37, 153, 182, .15);
+            padding-right: 25px;
+        }
+
+        .mega-col:last-child {
+            border-right: none;
+        }
+
+        .mega-col h5 {
+            color: #2599B6;
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.4;
+
+            margin-bottom: 18px;
+        }
+
+        .mega-col h5::after {
+            content: '';
+            display: block;
+
+            width: 75px;
+            height: 3px;
+
+            margin-top: 10px;
+
+            background: linear-gradient(90deg,
+                    #2599B6,
+                    #84B971);
+
+            border-radius: 10px;
+        }
+
+        .mega-col a {
+            display: block;
+
+            color: #334155 !important;
+            text-decoration: none;
+
+            font-size: 15px;
+            font-weight: 600;
+
+            line-height: 1.6;
+
+            padding: 8px 0;
+
+            transition: .3s ease;
+        }
+
+        .mega-col a:hover {
+            color: #2599B6 !important;
+            padding-left: 10px;
+        }
+
+        .mega-col a:hover {
+            background: linear-gradient(90deg,
+                    rgba(37, 153, 182, .05),
+                    rgba(132, 185, 113, .05));
+
+            border-radius: 8px;
+            padding-right: 10px;
+        }
+
+        .mega-col {
+            animation: fadeMega .5s ease;
+        }
+
+        @keyframes fadeMega {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width:991px) {
+
+            .mega-menu {
+                position: static;
+
+                width: 100%;
+                max-width: 100%;
+
+                transform: none;
+
+                opacity: 1;
+                visibility: visible;
+
+                display: none;
+
+                grid-template-columns: 1fr;
+
+                margin-top: 12px;
+                padding: 20px;
+            }
+
+            .mega-parent.active .mega-menu {
+                display: grid;
+            }
+
+            .mega-col {
+                border-right: none;
+                border-bottom: 1px solid rgba(37, 153, 182, .15);
+
+                padding-right: 0;
+                padding-bottom: 15px;
+            }
+
+            .mega-col:last-child {
+                border-bottom: none;
+            }
+
+            .mega-parent:hover .mega-menu {
+                transform: none;
+            }
+        }
+
+      /* --- HERO WRAPPER --- */
         .hero {
-            min-height: 70vh; display: flex; align-items: center; position: relative;
-            background: linear-gradient(105deg, #0b1c2c 0%, #0d192b 45%, #0e2237 100%);
-            padding: 30px 0; overflow: hidden;
+            min-height: 64vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            background:
+                linear-gradient(120deg, rgba(239, 246, 255, 0.82) 0%, rgba(255, 255, 255, 0.96) 44%, rgba(240, 253, 250, 0.76) 100%),
+                linear-gradient(90deg, rgba(0, 97, 255, 0.06) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(14, 165, 233, 0.045) 1px, transparent 1px);
+            background-size: auto, 64px 64px, 64px 64px;
+            background-position: center, 0 0, 0 0;
+            padding: 8px 0;
+            overflow: hidden;
+            transition: background-position 0.8s ease, box-shadow 0.5s ease;
+            --mx: 70%;
+            --my: 24%;
         }
 
-        /* ── CANVAS BG ── */
-        #heroCanvas {
+        .hero:hover {
+            background-position: center, 14px 0, 0 14px;
+            box-shadow: inset 0 0 90px rgba(0, 97, 255, 0.06);
+        }
+
+        .hero::before {
+            content: "";
             position: absolute;
             inset: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
+            background:
+                radial-gradient(circle at var(--mx) var(--my), rgba(0, 97, 255, 0.18), transparent 22%),
+                linear-gradient(115deg, rgba(0, 97, 255, 0.10), transparent 36%),
+                linear-gradient(250deg, rgba(20, 184, 166, 0.10), transparent 34%);
+            opacity: 0.78;
             pointer-events: none;
-        }
-
-        /* Glow Orbs — layered on top of canvas */
-        .hero-orb {
-            position: absolute; border-radius: 50%; filter: blur(90px);
-            pointer-events: none; opacity: 0;
-            animation: orbPulse 10s ease-in-out infinite alternate;
-        }
-        .hero-orb-1 {
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(37,153,182,0.25), transparent 70%);
-            top: -180px; left: -120px;
-            animation-delay: 0s;
-        }
-        .hero-orb-2 {
-            width: 400px; height: 400px;
-            background: radial-gradient(circle, rgba(132,185,113,0.18), transparent 70%);
-            bottom: -130px; right: -100px;
-            animation-delay: 3.5s;
-        }
-        .hero-orb-3 {
-            width: 260px; height: 260px;
-            background: radial-gradient(circle, rgba(75,113,178,0.2), transparent 70%);
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 7s;
-        }
-        @keyframes orbPulse {
-            0%   { opacity: 0.2; transform: scale(1); }
-            100% { opacity: 0.55; transform: scale(1.12); }
-        }
-        .hero-orb-3 { animation-name: orbPulse3; }
-        @keyframes orbPulse3 {
-            0%   { opacity: 0.15; transform: translate(-50%,-50%) scale(1); }
-            100% { opacity: 0.4;  transform: translate(-50%,-50%) scale(1.2); }
-        }
-
-        /* Scan Line sweep */
-        .hero-scan {
-            position: absolute; inset: 0; z-index: 1; pointer-events: none;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 3px,
-                rgba(37,153,182,0.018) 3px,
-                rgba(37,153,182,0.018) 4px
-            );
-        }
-
-        /* Vignette */
-        .hero-vignette {
-            position: absolute; inset: 0; z-index: 1; pointer-events: none;
-            background: radial-gradient(ellipse at center, transparent 40%, rgba(5,10,20,0.55) 100%);
+            animation: heroAura 9s ease-in-out infinite alternate;
         }
 
         .hero::after {
-            content: ""; position: absolute; inset: 0; z-index: 1;
-            background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(37,153,182,0.08), transparent 38%);
+            content: "";
+            position: absolute;
+            width: 520px;
+            height: 520px;
+            right: -180px;
+            top: -190px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 97, 255, 0.12), transparent 68%);
+            filter: blur(4px);
+            transform: translate3d(0, 0, 0);
+            transition: transform 0.7s ease, opacity 0.5s ease;
             pointer-events: none;
         }
-        .hero .container { position: relative; z-index: 2; }
 
-        /* Animated gradient accent line above hero content */
-        .hero-accent-line {
-            width: 52px; height: 3px; border-radius: 99px;
-            background: linear-gradient(90deg, #2599B6, #84B971);
-            margin-bottom: 18px;
-            animation: lineGrow 1.2s cubic-bezier(.22,1,.36,1) both;
-        }
-        @keyframes lineGrow {
-            from { width: 0; opacity: 0; }
-            to   { width: 52px; opacity: 1; }
+        .hero:hover::after {
+            opacity: 0.9;
+            transform: translate3d(-28px, 22px, 0) scale(1.08);
         }
 
-        .hero-eyebrow {
-            font-size: 0.65rem; font-weight: 800; text-transform: uppercase;
-            letter-spacing: 2.5px; color: var(--accent); display: block;
-            margin-bottom: 14px; opacity: 0;
-            animation: fadeUp 0.8s 0.3s ease both;
-        }
-        .hero h1 {
-            font-size: clamp(2.2rem,4.2vw,3.5rem); font-weight: 800;
-            line-height: 1.06; color: #fff; margin-bottom: 16px;
-            opacity: 0; animation: fadeUp 0.8s 0.5s ease both;
-        }
-        .hero h1 span {
-            color: transparent;
-            background: linear-gradient(110deg, #2599B6, #84B971, #2599B6);
-            background-size: 240% 100%;
-            -webkit-background-clip: text; background-clip: text;
-            animation: headlineShine 5s ease-in-out infinite;
-        }
-        @keyframes headlineShine { 0%,100% { background-position:0% 50%; } 50% { background-position:100% 50%; } }
-        .hero p {
-            color: rgba(255,255,255,0.55); font-size: 1rem; line-height: 1.7;
-            max-width: 520px; margin-bottom: 20px;
-            opacity: 0; animation: fadeUp 0.8s 0.7s ease both;
-        }
-        .hero-ctas {
-            display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
-            margin-bottom: 20px; opacity: 0; animation: fadeUp 0.8s 0.9s ease both;
-        }
-        @keyframes fadeUp {
-            from { opacity:0; transform:translateY(18px); }
-            to   { opacity:1; transform:translateY(0); }
+        @keyframes heroAura {
+            from {
+                opacity: 0.56;
+                transform: translateX(0);
+            }
+
+            to {
+                opacity: 0.9;
+                transform: translateX(18px);
+            }
         }
 
-        .btn-talk {
-            background: linear-gradient(135deg,var(--primary),var(--success));
-            color: white; padding: 14px 26px; border-radius: 10px; font-weight: 800;
-            border: none; transition: 0.3s; display: inline-flex; align-items: center;
-            gap: 8px; text-decoration: none;
-            box-shadow: 0 12px 28px rgba(37,153,182,0.3);
-        }
-        .btn-talk:hover { transform: translateY(-3px); color: white; box-shadow: 0 16px 36px rgba(37,153,182,0.4); }
-        .btn-explore {
-            border: 1.5px solid rgba(255,255,255,0.15); color: #fff;
-            background: rgba(255,255,255,0.06); padding: 13px 22px; border-radius: 10px;
-            font-weight: 800; text-decoration: none; transition: 0.3s;
-            display: inline-flex; align-items: center; gap: 8px; backdrop-filter: blur(8px);
-        }
-        .btn-explore:hover { border-color: rgba(37,153,182,0.4); color: var(--primary); background: #fff; transform: translateY(-3px); }
-        .hero-trust {
-            color: rgba(255,255,255,0.35); font-size: 0.7rem; font-weight: 600;
-            display: flex; align-items: center; gap: 8px;
-            opacity: 0; animation: fadeUp 0.8s 1.1s ease both;
-        }
-        .hero-trust i { color: #84B971; }
-
-        /* Live status pill */
-        .hero-status {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: rgba(132,185,113,0.12); border: 1px solid rgba(132,185,113,0.3);
-            border-radius: 99px; padding: 5px 14px; margin-bottom: 18px;
-            font-size: 0.68rem; font-weight: 700; color: #84B971;
-            opacity: 0; animation: fadeUp 0.8s 0.15s ease both;
-        }
-        .hero-status-dot {
-            width: 7px; height: 7px; border-radius: 50%;
-            background: #84B971; flex-shrink: 0;
-            box-shadow: 0 0 0 0 rgba(132,185,113,0.5);
-            animation: statusPing 2s ease-in-out infinite;
-        }
-        @keyframes statusPing {
-            0%,100% { box-shadow: 0 0 0 0 rgba(132,185,113,0.5); }
-            50%      { box-shadow: 0 0 0 6px rgba(132,185,113,0); }
-        }
-
-        /* ── RIGHT SIDE ISOMETRIC ── */
-        .scene-container { position: relative; width: 100%; height: 400px; display: flex; justify-content: center; align-items: center; overflow: visible; }
-        .isometric-box { position: relative; width: min(100%,520px); height: 420px; transition: transform 0.45s ease-out; filter: drop-shadow(0 34px 56px rgba(37,153,182,0.16)); }
-        .svg-lines { position: absolute; inset: 50px 10px 20px; width: calc(100% - 20px); height: calc(100% - 70px); pointer-events: none; overflow: visible; }
-        .line-path { fill: none; stroke: url(#heroLineGrad); stroke-width: 2; stroke-linecap: round; stroke-dasharray: 6 8; filter: drop-shadow(0 0 6px rgba(37,153,182,0.4)); animation: dash 5s linear infinite; opacity: 0.8; }
-        .line-path.is-active { stroke-width: 3.5; stroke-dasharray: 0; opacity: 1; filter: drop-shadow(0 0 12px rgba(37,153,182,0.7)); }
-        @keyframes dash { to { stroke-dashoffset: -120; } }
-        .cloud-platform { position: absolute; left: 50%; top: 52%; width: 250px; height: 200px; transform: translate(-50%,-43%); }
-        .platform-base { position: absolute; left: 50%; top: 58%; width: 240px; height: 140px; border-radius: 28px; background: linear-gradient(145deg,#fbfdff 0%,#e5f1ff 42%,#9bc8f7 100%); transform: translate(-50%,-50%) rotateX(58deg) rotateZ(45deg); box-shadow: 0 20px 0 #1f74d6, 0 32px 0 #0759b6, 0 40px 40px rgba(15,23,42,0.18); }
-        .center-image-wrapper { position: absolute; left: 50%; top: 40%; width: 240px; height: 240px; transform: translate(-50%,-50%); animation: floatHub 5s ease-in-out infinite; z-index: 10; }
-        .center-image-wrapper img { width: 100%; height: 100%; object-fit: contain; padding: 6px; transition: all 0.4s ease; }
-        @keyframes floatHub { 0%,100% { transform:translate(-50%,-50%) translateY(0); } 50% { transform:translate(-50%,-50%) translateY(-10px); } }
-        .node { position: absolute; z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 4px; background: transparent; border: 0; padding: 0; transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; }
-        .node:hover { transform: translateY(-10px) scale(1.06); }
-        .node .node-icon img { width: 68px; height: 68px; object-fit: contain; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.08)); }
-        .node span { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.4px; white-space: nowrap; color: rgba(255,255,255,0.5); }
-        .node-security { bottom: 30px; left: 50px; }
-        .node-users { bottom: 20px; right: 40px; }
-        .node-dc { top: 215px; left: -5px; }
-        .node-branch { top: 205px; right: -15px; }
-        .brand-node { position: absolute; z-index: 6; display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 80px; border: none !important; background: transparent !important; box-shadow: none !important; font-weight: 800; color: #fff; cursor: pointer; transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1); }
-        .brand-node img { width: 80px; height: 80px; border: none !important; object-fit: contain; transition: transform 0.4s ease; }
-        .brand-node .brand-label { font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: rgba(255,255,255,0.4); }
-        .brand-node:hover { transform: translateY(-6px) scale(1.04); }
-        .brand-node.is-active .brand-label { color: #84B971; }
-        .node-aws { top: 50px; right: 10px; }
-        .node-azure { top: 54px; left: 10px; }
-        .hero-info-card { position: absolute; left: 50%; bottom: -10px; z-index: 8; width: min(88%,280px); padding: 12px 16px; border-radius: 14px; background: rgba(255,255,255,0.92); border: 1px solid rgba(37,153,182,0.16); box-shadow: 0 12px 30px rgba(15,23,42,0.10); backdrop-filter: blur(12px); transform: translateX(-50%); text-align: center; }
-        .hero-info-card strong { display: block; color: var(--text-dark); font-size: 0.82rem; margin-bottom: 2px; }
-        .hero-info-card span { display: block; color: var(--text-gray); font-size: 0.68rem; line-height: 1.4; }
-
-        /* ── TRUSTED PARTNERS ── */
-        .trusted-partners { padding: 24px 0; background: #fafcff; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #f1f5f9; }
-        .partners-label { font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #94a3b8; text-align: center; margin-bottom: 12px; }
-        .marquee-wrap { overflow: hidden; position: relative; mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent); }
-        .marquee-track { display: flex; align-items: center; gap: 48px; width: max-content; animation: marquee 28s linear infinite; }
-        .marquee-wrap:hover .marquee-track { animation-play-state: paused; }
-        @keyframes marquee { 0% { transform:translateX(0); } 100% { transform:translateX(-50%); } }
-        .marquee-logo { flex-shrink: 0; height: 26px; width: auto; opacity: 0.7; transition: 0.3s; filter: grayscale(30%); }
-        .marquee-logo:hover { opacity: 1; filter: grayscale(0); transform: scale(1.06); }
-
-        /* ── SOLUTIONS HUB ── */
-        .hub-section { padding: 70px 0; background: #f8faff; }
-        .section-eyebrow { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); display: block; margin-bottom: 6px; }
-        .solutions-intro-col { max-width: 280px; }
-        .solutions-intro-col h2 { font-size: clamp(1.5rem,2.8vw,2.2rem); font-weight: 900; margin-bottom: 14px; }
-        .solutions-intro-col p { font-size: 0.88rem; color: var(--text-gray); line-height: 1.7; margin-bottom: 16px; }
-        .link-arrow { color: var(--primary); font-weight: 800; font-size: 0.8rem; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
-        .link-arrow:hover { gap: 10px; color: var(--primary-dark); }
-        .solutions-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
-        .sol-card { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 24px 22px; transition: all 0.35s; position: relative; overflow: hidden; }
-        .sol-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg,var(--primary),var(--accent)); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-        .sol-card:hover::after { transform: scaleX(1); }
-        .sol-card:hover { border-color: var(--primary); box-shadow: 0 12px 32px rgba(37,153,182,0.08); transform: translateY(-3px); }
-        .sol-icon { font-size: 1.6rem; color: var(--primary); margin-bottom: 12px; display: block; }
-        .sol-card h5 { font-size: 0.9rem; font-weight: 800; margin-bottom: 4px; }
-        .sol-card p { font-size: 0.78rem; color: var(--text-gray); line-height: 1.6; margin: 0; }
-
-        /* ── INDUSTRIES + SUCCESS ── */
-        .industries-section { padding: 70px 0; background: #fff; }
-        .ind-eyebrow { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2.5px; color: var(--primary); margin-bottom: 16px; display: block; }
-        .industry-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 16px; }
-        .ind-card { position: relative; height: 135px; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: 12px; text-decoration: none; transition: all 0.4s; border: 1px solid rgba(148,163,184,0.08); }
-        .ind-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(10,18,40,0.05) 0%, rgba(10,18,40,0.75) 100%); z-index: 2; transition: 0.3s; }
-        .ind-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; transition: transform 0.5s; }
-        .ind-content { position: relative; z-index: 3; color: #fff; }
-        .ind-content i { font-size: 1rem; display: block; margin-bottom: 4px; color: #7dd3f0; }
-        .ind-content h5 { font-size: 0.7rem; font-weight: 800; margin: 0; line-height: 1.2; }
-        .ind-card:hover img { transform: scale(1.08); }
-        .ind-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(15,23,42,0.15); }
-        .story-wrap { height: 100%; display: flex; flex-direction: column; }
-        .story-card { flex: 1; background: #fff; border-radius: 16px; border: 1px solid #e9edf4; overflow: hidden; display: flex; flex-direction: column; transition: 0.3s; box-shadow: 0 4px 20px rgba(15,23,42,0.05); }
-        .story-card:hover { border-color: var(--primary); box-shadow: 0 10px 32px rgba(37,153,182,0.08); }
-        .story-img-wrap { position: relative; width: 100%; height: 150px; overflow: hidden; }
-        .story-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
-        .story-card:hover .story-img-wrap img { transform: scale(1.04); }
-        .story-img-wrap::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(37,153,182,0.5) 0%, rgba(75,113,178,0.4) 100%); }
-        .story-body { padding: 20px 24px 22px; flex: 1; display: flex; flex-direction: column; }
-        .story-eyebrow { font-size: 0.6rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.8px; color: var(--accent); display: block; margin-bottom: 6px; }
-        .story-body h3 { font-size: 1.2rem; font-weight: 900; color: #0f172a; line-height: 1.2; margin-bottom: 8px; }
-        .story-body p { font-size: 0.82rem; color: var(--text-gray); line-height: 1.6; margin-bottom: 16px; }
-        .story-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; border-top: 1px solid #e2e8f0; padding-top: 16px; margin-bottom: 16px; }
-        .story-stat strong { font-size: 1.4rem; font-weight: 900; color: var(--primary); display: block; }
-        .story-stat span { font-size: 0.62rem; color: var(--text-gray); font-weight: 700; }
-
-        /* ── STATS BAR ── */
-        .stats-bar { background: #060912; padding: 45px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); align-items: center; }
-        .stat-item { text-align: center; border-right: 1px solid rgba(255,255,255,0.08); padding: 0 12px; }
-        .stat-item:last-child { border-right: none; }
-        .stat-item i { font-size: 1.8rem; color: var(--primary); margin-bottom: 10px; display: block; opacity: 0.9; }
-        .stat-item h4 { font-size: 1.8rem; font-weight: 800; color: #fff; margin: 0; line-height: 1; }
-        .stat-item p { font-size: 0.65rem; color: #94a3b8; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; margin-top: 6px; }
-
-        /* ── ECOSYSTEM ── */
-        .ecosystem-section { background: #ffffff; padding: 50px 40px; overflow: hidden; }
-        .eco-title-group { padding-right: 30px; }
-        .eco-eyebrow { color: var(--primary); font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; display: block; }
-        .eco-title-group h3 { font-size: 1.8rem; font-weight: 800; color: var(--text-dark); line-height: 1.2; margin-bottom: 14px; }
-        .eco-title-group p { color: var(--text-gray); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px; }
-        .ecosystem-matrix { display: grid; grid-template-columns: repeat(6, 1fr); border-left: 1px solid #f1f5f9; }
-        .eco-category-column { padding: 0 14px; border-right: 1px solid #f1f5f9; display: flex; flex-direction: column; gap: 18px; }
-        .eco-category-column:last-child { border-right: none; }
-        .eco-category-column h5 { font-size: 0.68rem; font-weight: 800; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.8px; margin-bottom: 6px; border-bottom: 2px solid #f8fafc; padding-bottom: 8px; }
-        .eco-logo-box { height: 34px; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
-        .eco-logo-box img { max-height: 22px; max-width: 100%; object-fit: contain; transition: 0.3s; opacity: 0.8; }
-        .eco-category-column:hover .eco-logo-box img { opacity: 1; transform: scale(1.05); }
-
-        /* ── CTA BANNER ── */
-        .cta-banner-wrapper {
-            position: relative;
-            overflow: hidden;
-            color: #fff;
-            margin: 0;       /* ← removed all margin */
-        }
-        .cta-inner {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            min-height: 180px;
-            max-height: 220px;
-        }
-        .cta-left {
-            background: linear-gradient(135deg, #1a6fa8 0%, #1e40af 100%);
-            padding: 30px 50px 150px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .hero .container {
             position: relative;
             z-index: 2;
         }
-        .cta-left::after {
-            content: '';
+
+        .hero-left {
+            max-width: 590px;
+        }
+
+        .hero-eyebrow {
+            width: fit-content;
+            color: var(--primary);
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.74rem;
+            letter-spacing: 1.6px;
+            margin-bottom: 22px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 14px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.74);
+            border: 1px solid rgba(0, 97, 255, 0.12);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
+            backdrop-filter: blur(12px);
+        }
+
+        .hero-eyebrow i {
+            width: 22px;
+            height: 22px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            font-size: 0.7rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.15rem, 4.2vw, 3.65rem);
+            font-weight: 800;
+            line-height: 1.02;
+            color: var(--text-dark);
+            margin-bottom: 18px;
+            max-width: 650px;
+        }
+
+        .hero h1 span {
+            color: transparent;
+            background: linear-gradient(110deg, var(--primary), var(--accent), var(--success), var(--primary));
+            background-size: 240% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: headlineShine 5s ease-in-out infinite;
+        }
+
+        @keyframes headlineShine {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .hero p {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.72;
+            max-width: 550px;
+            margin-bottom: 22px;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .btn-talk {
+            background: linear-gradient(135deg,
+                    var(--primary),
+                    var(--success));
+            color: white;
+            padding: 16px 28px;
+            border-radius: 12px;
+            font-weight: 800;
+            border: none;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            box-shadow: 0 14px 30px rgba(0, 97, 255, 0.24);
+        }
+
+        .btn-talk:hover {
+            background: linear-gradient(135deg,
+                    var(--success),
+                    var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 18px 35px var(--primary-glow);
+            color: white;
+        }
+
+        .btn-talk i,
+        .btn-explore i {
+            transition: transform 0.3s ease;
+        }
+
+        .btn-talk:hover i,
+        .btn-explore:hover i {
+            transform: translateX(4px);
+        }
+
+        .btn-explore {
+            border: 1.5px solid var(--soft-border);
+            color: var(--text-dark);
+            background: rgba(255, 255, 255, 0.72);
+            padding: 15px 24px;
+            border-radius: 12px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+        }
+
+        .btn-explore:hover {
+            border-color: rgba(0, 97, 255, 0.42);
+            color: var(--primary);
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-bottom: 20px;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.76);
+            border: 1px solid rgba(0, 97, 255, 0.12);
+            color: #334155;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
+            transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+        }
+
+        .hero-pill:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 97, 255, 0.26);
+            box-shadow: 0 16px 34px rgba(0, 97, 255, 0.10);
+        }
+
+        .hero-pill i {
+            color: var(--primary);
+            font-size: 0.78rem;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+            max-width: 520px;
+        }
+
+        .hero-stat {
+            padding: 13px 15px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid rgba(0, 97, 255, 0.12);
+            box-shadow: 0 14px 34px rgba(15, 23, 42, 0.06);
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-stat:hover {
+            transform: translateY(-6px);
+            border-color: rgba(0, 97, 255, 0.24);
+            box-shadow: 0 20px 44px rgba(0, 97, 255, 0.12);
+        }
+
+        .hero-stat strong {
+            display: block;
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .hero-stat span {
+            display: block;
+            color: var(--text-gray);
+            font-size: 0.72rem;
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .hero-left>* {
+            animation: heroIn 0.75s cubic-bezier(.2, .8, .2, 1) both;
+        }
+
+        .hero-left>*:nth-child(2) {
+            animation-delay: 0.08s;
+        }
+
+        .hero-left>*:nth-child(3) {
+            animation-delay: 0.16s;
+        }
+
+        .hero-left>*:nth-child(4) {
+            animation-delay: 0.24s;
+        }
+
+        .hero-left>*:nth-child(5) {
+            animation-delay: 0.32s;
+        }
+
+        .hero-left>*:nth-child(6) {
+            animation-delay: 0.40s;
+        }
+
+        @keyframes heroIn {
+            from {
+                opacity: 0;
+                transform: translateY(22px) scale(0.98);
+                filter: blur(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-left {
+            animation: leftFloat 6s ease-in-out infinite;
+        }
+
+        @keyframes leftFloat {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        .btn-talk:focus-visible,
+        .btn-explore:focus-visible,
+        .node:focus-visible,
+        .brand-node,
+        .orbit-node:focus-visible {
+           
+        }
+
+        /* --- RIGHT SIDE ISOMETRIC CLOUD SCENE --- */
+        .scene-container {
+            position: relative;
+            width: 100%;
+            height: 430px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible;
+        }
+
+        .isometric-box {
+            position: relative;
+            width: min(100%, 560px);
+            height: 455px;
+            transition: transform 0.45s ease-out;
+            filter: drop-shadow(0 34px 56px rgba(0, 97, 255, 0.14));
+        }
+
+        .isometric-box::before {
+            content: "";
             position: absolute;
-            right: -40px; top: 0; bottom: 0; width: 80px;
-            background: #1e40af;
-            clip-path: polygon(0 0, 30% 0, 100% 100%, 0 100%);
-            z-index: 3;
+            inset: 42px 0 16px;
+            background:
+                linear-gradient(120deg, transparent 0 24%, rgba(0, 97, 255, 0.10) 24.2% 24.7%, transparent 25% 49%, rgba(14, 165, 233, 0.10) 49.2% 49.7%, transparent 50%),
+                linear-gradient(60deg, transparent 0 24%, rgba(20, 184, 166, 0.10) 24.2% 24.7%, transparent 25% 49%, rgba(0, 97, 255, 0.08) 49.2% 49.7%, transparent 50%);
+            background-size: 88px 88px;
+            opacity: 0.85;
+            transform: skewY(-8deg);
+            mask-image: radial-gradient(ellipse at 54% 52%, #000 0 54%, transparent 74%);
         }
-        .cta-title { font-size: 1.6rem; font-weight: 800; line-height: 1.2; margin-bottom: 6px; letter-spacing: -0.5px; }
-        .cta-desc { font-size: 0.85rem; opacity: 0.9; line-height: 1.5; margin-bottom: 16px; max-width: 420px; }
-        .btn-cta-white {
-            background: #fff; color: #1e40af; padding: 10px 24px; border-radius: 8px;
-            font-weight: 800; text-decoration: none; display: inline-flex; align-items: center;
-            gap: 10px; transition: 0.3s; font-size: 0.85rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: fit-content;
+
+        .svg-lines {
+            position: absolute;
+            inset: 54px 10px 26px;
+            width: calc(100% - 20px);
+            height: calc(100% - 80px);
+            pointer-events: none;
+            overflow: visible;
         }
-        .btn-cta-white:hover { transform: translateY(-2px); background: #f8fafc; color: #1a3a8a; }
-        .cta-right { position: relative; overflow: hidden; z-index: 1; }
-        .cta-right img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* ── FOOTER ── */
-        .site-footer {
-            background: #090e1a; color: #94a3b8;
-            padding: 60px 0 25px;
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255,255,255,0.04);
-            /* no extra margin-top — CTA sits flush above */
+        .line-path {
+            fill: none;
+            stroke: url(#heroLineGrad);
+            stroke-width: 2.4;
+            stroke-linecap: round;
+            stroke-dasharray: 7 10;
+            filter: drop-shadow(0 0 8px rgba(0, 97, 255, 0.65));
+            animation: dash 5s linear infinite;
+            opacity: 0.95;
         }
-        .footer-brand p { line-height: 1.6; margin-bottom: 20px; max-width: 260px; font-size: 0.8rem; }
-        .footer-socials { display: flex; gap: 10px; }
-        .footer-socials a { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: all 0.3s ease; }
-        .footer-socials a:hover { background: var(--primary); border-color: transparent; transform: translateY(-3px); }
-        .footer-heading { font-size: 0.72rem; font-weight: 800; color: #fff; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
-        .footer-links { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; }
-        .footer-links a { color: #94a3b8; text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
-        .footer-links a:hover { color: #fff; }
-        .footer-contacts { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
-        .footer-contacts li { display: flex; gap: 10px; line-height: 1.4; font-size: 0.8rem; }
-        .footer-contacts i { color: var(--primary); font-size: 10px; margin-top: 3px; }
-        .footer-bottom { margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.04); padding-top: 20px; font-size: 0.75rem; display: flex; justify-content: space-between; align-items: center; }
-        .footer-bottom-links { display: flex; gap: 16px; }
-        .footer-bottom-links a { color: #64748b; text-decoration: none; transition: color 0.2s; }
-        .footer-bottom-links a:hover { color: #fff; }
 
-        .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; background: #fff; color: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1rem; cursor: pointer; z-index: 998; opacity: 0; visibility: hidden; transform: translateY(16px); transition: all 0.35s; box-shadow: 0 8px 24px rgba(15,23,42,0.10); border: 1px solid var(--soft-border); }
-        .back-to-top.active { opacity: 1; visibility: visible; transform: translateY(0); }
-        .back-to-top:hover { background: var(--primary); color: #fff; border-color: transparent; transform: translateY(-4px); }
+        .line-path.is-active {
+            stroke-width: 4;
+            stroke-dasharray: 0;
+            opacity: 1;
+            filter: drop-shadow(0 0 14px rgba(0, 97, 255, 0.9));
+        }
 
-        /* ── RESPONSIVE ── */
+        @keyframes dash {
+            to {
+                stroke-dashoffset: -120;
+            }
+        }
+
+        .cloud-platform {
+            position: absolute;
+            left: 50%;
+            top: 52%;
+            width: 270px;
+            height: 220px;
+            transform: translate(-50%, -43%);
+        }
+
+        .platform-base {
+            position: absolute;
+            left: 50%;
+            top: 58%;
+            width: 265px;
+            height: 160px;
+            border-radius: 30px;
+            background: linear-gradient(145deg, #fbfdff 0%, #e5f1ff 42%, #9bc8f7 100%);
+            transform: translate(-50%, -50%) rotateX(58deg) rotateZ(45deg);
+            box-shadow: 0 24px 0 #1f74d6, 0 36px 0 #0759b6, 0 46px 48px rgba(15, 23, 42, 0.22);
+        }
+
+        .platform-base::before {
+            content: "";
+            position: absolute;
+            inset: 18px;
+            border-radius: 22px;
+            border: 2px solid rgba(0, 97, 255, 0.22);
+            box-shadow: inset 0 0 22px rgba(0, 97, 255, 0.14);
+        }
+
+        .platform-base::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            border: 2px solid rgba(0, 97, 255, 0.28);
+            transform: translate(-50%, -50%);
+            animation: signalPulse 2.6s ease-out infinite;
+        }
+
+        @keyframes signalPulse {
+            0% {
+                opacity: 0.9;
+                transform: translate(-50%, -50%) scale(0.45);
+            }
+
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(2.7);
+            }
+        }
+
+        /* CENTER IMAGE - FIXED with increased height */
+        .center-image-wrapper {
+            position: absolute;
+            left: 50%;
+            top: 44%;
+            width: 300px;
+            height: 300px;
+            transform: translate(-50%, -50%);
+            animation: floatHub 5s ease-in-out infinite;
+            z-index: 10;
+        }
+
+        .center-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            
+            padding: 8px;
+            transition: all 0.4s ease;
+        }
+
+        .center-image-wrapper:hover img {
+            transform: scale(1.08) translateY(-6px);
+            filter: drop-shadow(0 8px 30px rgba(37, 153, 182, 0.25));
+        }
+
+        @keyframes floatHub {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) translateY(0);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) translateY(-12px);
+            }
+        }
+
+        /* Floating Nodes with Images - NO CIRCLE, NO BG */
+        .node {
+            position: absolute;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+            padding: 0;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+        }
+
+        .node:hover {
+            transform: translateY(-12px) scale(1.08);
+        }
+
+        .node.is-active {
+            transform: translateY(-12px) scale(1.10);
+        }
+
+        .node .node-icon {
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: none;
+            box-shadow: none;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .node .node-icon img {
+            width: 55px;
+            height: 55px;
+            object-fit: contain;
+            transition: transform 0.5s ease, filter 0.4s ease;
+            display: block;
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+        }
+
+        .node:hover .node-icon img {
+            transform: scale(1.15) translateY(-4px);
+            filter: drop-shadow(0 8px 25px rgba(37, 153, 182, 0.25));
+        }
+
+        .node.is-active .node-icon img {
+            filter: drop-shadow(0 8px 25px rgba(37, 153, 182, 0.3));
+        }
+
+        .node span {
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            transition: color 0.3s ease;
+        }
+
+        .node.is-active span {
+            color: var(--primary);
+        }
+
+        /* Node Positions */
+        .node-security {
+            bottom: 40px;
+            left: 60px;
+        }
+
+        .node-users {
+            bottom: 30px;
+            right: 50px;
+        }
+
+        .node-dc {
+            top: 225px;
+            left: -10px;
+        }
+
+        .node-branch {
+            top: 215px;
+            right: -20px;
+        }
+
+        /* Brand Nodes - Azure & AWS with Images - NO BORDER */
+        .brand-node {
+            position: absolute;
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            min-width: 100px;
+            border: none !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            backdrop-filter: none !important;
+            font-weight: 800;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .brand-node img {
+            width: 100px;
+            height: 100px;
+            border: none !important;
+            outline: none !important;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .brand-node .brand-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #475569;
+        }
+
+        .brand-node:hover {
+            transform: translateY(-8px) scale(1.04);
+        }
+
+        .brand-node:hover img {
+            transform: scale(1.1);
+        }
+
+        .brand-node.is-active .brand-label {
+            color: var(--primary);
+        }
+
+        .node-aws {
+            top: 60px;
+            right: 20px;
+        }
+
+        .node-azure {
+            top: 64px;
+            left: 20px;
+        }
+
+        .hero-info-card {
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            z-index: 8;
+            width: min(88%, 320px);
+            padding: 16px 18px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 97, 255, 0.14);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.13);
+            backdrop-filter: blur(14px);
+            transform: translateX(-50%);
+        }
+
+        .hero-info-card strong {
+            display: block;
+            color: var(--text-dark);
+            font-size: 0.92rem;
+            margin-bottom: 4px;
+        }
+
+        .hero-info-card span {
+            display: block;
+            color: var(--text-gray);
+            font-size: 0.78rem;
+            line-height: 1.55;
+        }
+
+        /* --- RESPONSIVE --- */
         @media (max-width: 991px) {
-            .nav-toggle { display: inline-flex; }
-            .nav-menu { position: fixed; top: 72px; left: -100%; width: 100%; height: calc(100vh - 72px); background: #fff; flex-direction: column; padding: 30px; transition: 0.4s; z-index: 999; display: flex !important; overflow-y: auto; }
-            .site-nav.nav-open .nav-menu { left: 0; }
-            .stats-grid { grid-template-columns: repeat(3,1fr); }
-            .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); padding-bottom: 16px; margin-bottom: 16px; }
-            .industry-grid { grid-template-columns: repeat(3,1fr); }
-            .ecosystem-matrix { grid-template-columns: repeat(3, 2fr); row-gap: 30px; }
-            .eco-category-column:nth-child(3n) { border-right: none; }
-            .solutions-grid { grid-template-columns: repeat(2,1fr); }
-            .cta-inner { grid-template-columns: 1fr; max-height: none; min-height: auto; }
-            .cta-left { padding: 30px 24px; text-align: center; align-items: center; }
-            .cta-left::after { display: none; }
-            .cta-right { height: 160px; }
-            .cta-title { font-size: 1.4rem; }
-            .cta-desc { max-width: 100%; }
-            .btn-cta-white { width: 100%; justify-content: center; }
+            body {
+                cursor: auto;
+            }
+
+            .site-nav {
+                position: sticky;
+                top: 0;
+            }
+
+            .nav-shell {
+                min-height: 68px;
+            }
+
+            .brand-logo img {
+                width: 148px;
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .nav-menu {
+                position: absolute;
+                left: 16px;
+                right: 16px;
+                top: calc(100% + 10px);
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 2px;
+                padding: 14px;
+                border-radius: 16px;
+                background: rgba(255, 255, 255, 0.96);
+                border: 1px solid rgba(0, 97, 255, 0.12);
+                box-shadow: 0 24px 60px rgba(15, 23, 42, 0.14);
+                backdrop-filter: blur(18px);
+            }
+
+            .site-nav.nav-open .nav-menu {
+                display: flex;
+            }
+
+            .nav-menu a {
+                justify-content: space-between;
+                padding: 12px 14px;
+                border-radius: 10px;
+            }
+
+            .nav-menu a:hover {
+                background: rgba(0, 97, 255, 0.06);
+            }
+
+            .nav-actions {
+                margin-left: auto;
+                margin-right: 16px;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero {
+                min-height: auto;
+                text-align: center;
+                padding: 34px 0;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-left {
+                margin: 0 auto;
+            }
+
+            .hero-eyebrow {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-stats {
+                margin: 0 auto;
+            }
+
+            .scene-container {
+                height: 330px;
+                overflow: hidden;
+            }
+
+            .isometric-box {
+                width: 500px;
+                height: 395px;
+                transform: scale(0.78);
+                transform-origin: center;
+            }
+
+            .node .node-icon img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .brand-node img {
+                width: 70px;
+                height: 70px;
+            }
+
+            .center-image-wrapper {
+                width: 120px;
+                height: 120px;
+            }
         }
-        @media (max-width: 768px) {
-            .solutions-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: repeat(2,1fr); }
-            .industry-grid { grid-template-columns: repeat(2,1fr); }
-            .ecosystem-matrix { grid-template-columns: repeat(2, 1fr); }
-            .story-stats { grid-template-columns: repeat(3,1fr); }
-            .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+
+        @media (max-width: 575px) {
+            .hero {
+                padding: 30px 0;
+            }
+
+            .hero h1 {
+                font-size: clamp(2rem, 11vw, 2.7rem);
+            }
+
+            .hero p {
+                font-size: 0.94rem;
+                line-height: 1.65;
+            }
+
+            .hero-ctas {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn-talk,
+            .btn-explore {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .hero-stat {
+                padding: 14px 16px;
+            }
+
+            .scene-container {
+                height: 285px;
+                margin-top: 8px;
+            }
+
+            .isometric-box {
+                transform: scale(0.6);
+            }
+
+            .node .node-icon img {
+                width: 32px;
+                height: 32px;
+            }
+
+            .brand-node img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .brand-node .brand-label {
+                font-size: 0.5rem;
+            }
+
+            .center-image-wrapper {
+                width: 90px;
+                height: 90px;
+            }
+
+            .brand-node {
+                padding: 4px 8px;
+                min-width: 60px;
+            }
+
+            .node span {
+                font-size: 0.55rem;
+            }
+
+            .node-security {
+                bottom: 30px;
+                left: 30px;
+            }
+
+            .node-users {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .node-dc {
+                top: 170px;
+                left: -5px;
+            }
+
+            .node-branch {
+                top: 160px;
+                right: -10px;
+            }
+
+            .node-aws {
+                top: 40px;
+                right: 10px;
+            }
+
+            .node-azure {
+                top: 44px;
+                left: 10px;
+            }
         }
-        @media (max-width: 576px) {
-            .solutions-grid { grid-template-columns: 1fr; }
-            .stats-grid { grid-template-columns: 1fr; }
-            .industry-grid { grid-template-columns: 1fr; }
-            .ecosystem-matrix { grid-template-columns: 1fr; }
-            .stat-item { border-bottom: 1px solid rgba(255,255,255,0.06); }
-            .hero { min-height: auto; padding: 20px 0; }
-            .hero h1 { font-size: 1.8rem; }
-            .hero-ctas { flex-direction: column; align-items: stretch; }
-            .btn-talk, .btn-explore { justify-content: center; width: 100%; }
-            .scene-container { height: 280px; }
-            .isometric-box { transform: scale(0.6); }
-        }
-    </style>
+
+    /* ===== SOLUTIONS ===== */
+    .solution-grid { border-top: 1px solid var(--is-line); border-left: 1px solid var(--is-line); }
+    .solution-item { padding: 1.6rem 1.4rem; border-right: 1px solid var(--is-line); border-bottom: 1px solid var(--is-line); transition: background .25s; }
+    .solution-item:hover { background: var(--is-bg-soft); }
+    .solution-item .icon-box { color: var(--is-blue); font-size: 1.7rem; margin-bottom: .9rem; display: flex; align-items: center; }
+    .solution-item h6 { font-weight: 700; margin-bottom: .3rem; font-size: .95rem; }
+    .solution-item p { color: var(--is-muted); font-size: .84rem; margin: 0; line-height: 1.5; }
+
+    /* ===== INDUSTRIES PANEL ===== */
+    .industries-section { width: 100%; }
+    .industries-inner { display: flex; width: 100%; min-height: 500px; }
+
+    /* LEFT — steel-blue/navy like screenshot */
+    .industries-left {
+      width: 50%;
+      background: #edf0f8;
+      padding: 3rem 3.5rem;
+      border-right: none;
+    }
+
+    /* RIGHT — white bg + full bleed building photo */
+    .industries-right {
+      width: 50%;
+      display: flex;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    @media (max-width: 991px) {
+      .industries-inner { flex-direction: column; min-height: auto; }
+      .industries-left  { width: 100%; padding: 2rem 1.2rem; }
+      .industries-right { width: 100%; min-height: 420px; }
+    }
+
+    /* Industry cards */
+    .industry-card {
+      position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 1/1;
+      display: flex; align-items: flex-end; cursor: pointer;
+      box-shadow: 0 2px 12px rgba(0,0,0,.3);
+    }
+    .industry-card img {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; transition: transform .5s;
+      filter: saturate(.65) brightness(.6);
+    }
+    .industry-card::after {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(8,16,46,.08) 25%, rgba(4,10,32,.78));
+    }
+    .industry-card:hover img { transform: scale(1.07); filter: saturate(.8) brightness(.72); }
+    .industry-card .label {
+      position: relative; z-index: 2; color: #fff;
+      padding: .65rem .75rem; font-weight: 700; font-size: .73rem; line-height: 1.25;
+    }
+    .industry-card .label i { display: block; font-size: .95rem; margin-bottom: .28rem; opacity: .88; }
+
+    /* ===== SUCCESS STORY ===== */
+    /* Full background image behind the entire right panel */
+    .industries-right .success-bg-img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: right center;
+      z-index: 0;
+    }
+    /* White fade — solid white on left, fades to transparent on right */
+    .industries-right .success-bg-overlay {
+      position: absolute;
+      inset: 0; z-index: 1;
+      background: linear-gradient(90deg,
+        #ffffff 0%,
+        #edf0f8 38%,
+        rgba(255,255,255,.82) 55%,
+        rgba(255, 255, 255, 0.92) 75%,
+        rgba(255, 255, 255, 0) 100%
+      );
+    }
+    /* Content above overlay */
+    .success-left {
+      position: relative; z-index: 2;
+      width: 68%;
+      padding: 3rem 2.8rem;
+      display: flex; flex-direction: column; justify-content: center;
+      background: transparent;
+    }
+    @media (max-width: 767px) {
+      .success-left { width: 100%; padding: 2rem 1.4rem; }
+      .industries-right .success-bg-overlay {
+        background: linear-gradient(180deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.75) 100%);
+      }
+    }
+
+    .stat-big { font-weight: 800; color: var(--is-blue); font-size: 2rem; line-height: 1; }
+    .stat-label { font-size: .72rem; color: var(--is-muted); margin-top: .3rem; }
+
+    /* Stats with vertical center dividers */
+    .stats-dividers { display: flex; gap: 0; }
+    .stat-col { flex: 1; padding-right: 1.4rem; }
+    .stat-col + .stat-col {
+      border-left: 1.5px solid var(--is-line);
+      padding-left: 1.4rem; padding-right: 1.4rem;
+    }
+    .stat-col:last-child { padding-right: 0; }
+
+    .stat-big { font-weight: 800; color: var(--is-blue); font-size: 1.85rem; line-height: 1; }
+    .stat-label { font-size: .72rem; color: var(--is-muted); margin-top: .25rem; }
+
+    /* Stats with center dividers */
+    .stats-dividers { display: flex; gap: 0; }
+    .stat-col { flex: 1; padding-right: 1.2rem; position: relative; }
+    .stat-col + .stat-col {
+      border-left: 1.5px solid var(--is-line);
+      padding-left: 1.2rem; padding-right: 1.2rem;
+    }
+    .stat-col:last-child { padding-right: 0; }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar { background: var(--is-navy); color: #fff; }
+    .stats-bar .num { font-weight: 800; font-size: 1.6rem; line-height: 1; }
+    .stats-bar .lbl { font-size: .73rem; color: #9fb0cf; margin-top: .2rem; }
+    .stat-item { position: relative; }
+    .stat-item + .stat-item::before {
+      content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+      height: 55%; width: 1px; background: rgba(255,255,255,.13);
+    }
+    .ic-wrap {
+      width: 50px; height: 50px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; flex-shrink: 0;
+    }
+    .ic-teal  { background: rgba(32,210,185,.15); color: #20d2b9; }
+    .ic-blue  { background: rgba(56,130,246,.15); color: #6ab0fb; }
+    .ic-green { background: rgba(43,182,115,.15); color: #2bb673; }
+    .ic-sky   { background: rgba(56,185,255,.15); color: #38b9ff; }
+    .ic-cyan  { background: rgba(32,210,185,.15); color: #20d2b9; }
+
+    /* ===== TECH ECOSYSTEM ===== */
+    .tech-section { border-top: 1px solid var(--is-line); }
+    .tech-logo-row {
+      display: flex; align-items: stretch;
+      border: 1px solid var(--is-line);
+      border-radius: 12px; overflow: hidden;
+    }
+    .tech-col {
+      flex: 1;
+      padding: 1.1rem 1.2rem;
+      border-right: 1px solid var(--is-line);
+      display: flex; flex-direction: column;
+      background: #fff;
+    }
+    .tech-col:last-child { border-right: none; }
+    .tech-col-title {
+      font-weight: 700; font-size: .76rem; color: var(--is-ink);
+      margin-bottom: 1.5rem; letter-spacing: .01em;
+      padding-bottom: .6rem;
+      border-bottom: 1px solid var(--is-line);
+    }
+    .tech-logo {
+      height: 24px; object-fit: contain; max-width: 100%;
+      display: block; transition: transform .25s;
+    }
+    .tech-logo:hover { transform: scale(1.06); }
+    .tech-logo + .tech-logo { margin-top: 1.6rem; }
+    .tech-logo-label {
+      display: flex; align-items: center; gap: .4rem;
+      margin-top: 1.6rem;
+    }
+    .tech-logo-label img { height: 13px; object-fit: contain; }
+    .tech-logo-label span { font-size: .68rem; font-weight: 600; color: var(--is-ink); }
+    @media (max-width: 767px) {
+      .tech-logo-row { flex-wrap: wrap; border-radius: 8px; }
+      .tech-col { flex: 0 0 50%; border-bottom: 1px solid var(--is-line); padding: 1.1rem; }
+      .tech-col:nth-child(even) { border-right: none; }
+      .tech-col:nth-last-child(-n+2) { border-bottom: none; }
+    }
+
+    /* ===== CTA ===== */
+    .cta-section {
+      background: linear-gradient(105deg, #1857d6 0%, #0f3aa0 40%, #14784f 100%);
+      color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-section h2 { font-weight: 800; font-size: clamp(1.55rem, 2.8vw, 2rem); }
+    .cta-bg-img {
+      position: absolute; right: 0; top: 0; height: 100%; width: 40%;
+      object-fit: cover; opacity: .22;
+    }
+    .btn-cta { background: #fff; color: var(--is-blue); font-weight: 700; border-radius: 8px; padding: .8rem 1.4rem; border: none; transition: background .2s; display: inline-flex; align-items: center; gap: .5rem; }
+    .btn-cta:hover { background: #eef3ff; color: var(--is-blue-dark); }
+
+    /* ===== FOOTER ===== */
+    footer.site-footer { background: var(--is-navy); color: #b9c4d8; }
+    .f-brand-logo { width: 42px; height: 42px; border-radius: 9px; overflow: hidden; }
+    .f-brand-logo img { width: 100%; height: 100%; object-fit: contain; }
+    footer .brand-name { font-size: 1rem; }
+    footer .f-title { color: #fff; font-weight: 700; font-size: .78rem; letter-spacing: .09em; text-transform: uppercase; margin-bottom: .9rem; }
+    footer a.f-link { color: #9fb0cf; font-size: .86rem; display: block; padding: .26rem 0; transition: color .2s; }
+    footer a.f-link:hover { color: #fff; }
+    .social-ic {
+      width: 34px; height: 34px; border-radius: 8px; background: rgba(255,255,255,.08);
+      display: grid; place-items: center; color: #cdd8ea; transition: all .25s;
+    }
+    .social-ic:hover { background: var(--is-blue); color: #fff; }
+
+    /* ===== ANIMATIONS ===== */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ===== BACK TO TOP ===== */
+    #backToTop {
+      position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--is-blue); color: #fff;
+      display: grid; place-items: center; font-size: 1.1rem;
+      box-shadow: 0 4px 16px rgba(24,87,214,.35);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .3s;
+      transform: translateY(10px);
+      border: none; cursor: pointer;
+    }
+    #backToTop.show { opacity: 1; pointer-events: all; transform: translateY(0); }
+    #backToTop:hover { background: var(--is-blue-dark); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 991px) { .hero { padding-top: 2.5rem; } }
+    @media (max-width: 576px) { .hero h1 { font-size: 2rem; } }
+  </style>
 </head>
 <body>
 
-<!-- ══ NAVBAR ══ -->
-<nav class="site-nav" id="siteNav">
-    <div class="container nav-shell">
-        <a class="brand-logo" href="#">
-            <img src="assets/Infraswift-01.png" alt="InfraSwift Technologies">
-        </a>
-        <ul class="nav-menu" id="navMenu">
-            <li><a href="#">Industries <i class="fas fa-chevron-down"></i></a></li>
-            <li><a href="#">Technologies <i class="fas fa-chevron-down"></i></a></li>
-            <li><a href="#">Success Stories</a></li>
-            <li class="mega-parent">
-                <a href="#">Solutions <i class="fas fa-chevron-down"></i></a>
-                <div class="mega-menu">
-                    <div class="mega-col">
-                        <h5>Cloud Solutions</h5>
-                        <a href="#">Microsoft Azure</a>
-                        <a href="#">AWS</a>
-                        <a href="#">VMware Cloud Foundation</a>
+  <!-- ======== NAVBAR ======== -->
+  <nav class="site-nav" id="siteNav">
+        <div class="container nav-shell">
+            <a class="brand-logo" href="#">
+                <img src="assets/Infraswift-01.png" alt="InfraSwift Technologies">
+            </a>
+
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#">Industries <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">Technologies <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">Success Stories</a></li>
+                <li class="mega-parent">
+                    <a href="#">
+                        Solutions
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+
+                    <div class="mega-menu">
+                        <div class="mega-col">
+                            <h5>Cloud Solutions</h5>
+                            <a href="#">Microsoft Azure</a>
+                            <a href="#">AWS</a>
+                            <a href="#">VMware Cloud Foundation</a>
+                        </div>
+
+                        <div class="mega-col">
+                            <h5>Infrastructure Modernization</h5>
+                            <a href="#">VMware vSphere</a>
+                            <a href="#">VMware VCF</a>
+                            <a href="#">Hyper-V</a>
+                            <a href="#">Storage & Backup</a>
+                        </div>
+
+                        <div class="mega-col">
+                            <h5>Cybersecurity</h5>
+                            <a href="#">SOC Services</a>
+                            <a href="#">Fortinet</a>
+                            <a href="#">Microsoft Security</a>
+                            <a href="#">Endpoint Protection</a>
+                        </div>
+
+                        <div class="mega-col">
+                            <h5>Networking</h5>
+                            <a href="#">Cisco</a>
+                            <a href="#">Aruba</a>
+                            <a href="#">SD-WAN</a>
+                            <a href="#">Wireless</a>
+                        </div>
+
+                        <div class="mega-col">
+                            <h5>Managed Services</h5>
+                            <a href="#">24x7 Monitoring</a>
+                            <a href="#">NOC</a>
+                            <a href="#">Helpdesk</a>
+                            <a href="#">Infrastructure Management</a>
+                        </div>
                     </div>
-                    <div class="mega-col">
-                        <h5>Infrastructure Modernization</h5>
-                        <a href="#">VMware vSphere</a>
-                        <a href="#">VMware VCF</a>
-                        <a href="#">Hyper-V</a>
-                        <a href="#">Storage &amp; Backup</a>
-                    </div>
-                    <div class="mega-col">
-                        <h5>Cybersecurity</h5>
-                        <a href="#">SOC Services</a>
-                        <a href="#">Fortinet</a>
-                        <a href="#">Microsoft Security</a>
-                        <a href="#">Endpoint Protection</a>
-                    </div>
-                    <div class="mega-col">
-                        <h5>Networking</h5>
-                        <a href="#">Cisco</a>
-                        <a href="#">Aruba</a>
-                        <a href="#">SD-WAN</a>
-                        <a href="#">Wireless</a>
-                    </div>
-                    <div class="mega-col">
-                        <h5>Managed Services</h5>
-                        <a href="#">24x7 Monitoring</a>
-                        <a href="#">NOC</a>
-                        <a href="#">Helpdesk</a>
-                        <a href="#">Infrastructure Management</a>
-                    </div>
-                </div>
-            </li>
-            <li><a href="#">Resources <i class="fas fa-chevron-down"></i></a></li>
-            <li><a href="#">About Us <i class="fas fa-chevron-down"></i></a></li>
-        </ul>
-        <div class="nav-actions">
-            <a href="#" class="nav-cta">Talk to an Expert <i class="fas fa-arrow-right"></i></a>
-            <button class="nav-toggle" id="navToggle" type="button">
-                <i class="fas fa-bars"></i>
-            </button>
+                </li>
+                <li><a href="#">Resources <i class="fas fa-chevron-down"></i></a></li>
+                <li><a href="#">About Us <i class="fas fa-chevron-down"></i></a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="#" class="nav-cta">Talk to an Expert <i class="fas fa-arrow-right"></i></a>
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation"
+                    aria-expanded="false" aria-controls="navMenu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
-    </div>
-</nav>
-
-<!-- ══ HERO ══ -->
-<section class="hero" id="heroSection">
-    <!-- Canvas — advanced particle network -->
-    <canvas id="heroCanvas"></canvas>
-
-    <!-- Glow orbs -->
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-
-    <!-- Scan lines & vignette -->
-    <div class="hero-scan"></div>
-    <div class="hero-vignette"></div>
-
+    </nav>
+    <!-- ====== HERO SECTION ====== -->
+<section class="hero">
     <div class="container">
         <div class="row align-items-center">
+            <!-- Left Content -->
             <div class="col-lg-6">
                 <div class="hero-left">
-                    <!-- Live status pill -->
-                    
-                    <span class="hero-eyebrow">Enterprise IT Infrastructure</span>
                     <h1>Build Smarter.<br>Secure Deeper.<br><span>Scale Limitlessly.</span></h1>
                     <p>Modernize infrastructure, strengthen security, and connect cloud, users, branches, and data centers through future-ready IT solutions.</p>
-                    <div class="hero-ctas">
+
+                    <div class="hero-ctas justify-content-center justify-content-lg-start">
                         <a href="#" class="btn-talk">Talk to an Expert <i class="fas fa-arrow-right"></i></a>
                         <a href="#" class="btn-explore">Explore Solutions <i class="fas fa-arrow-right"></i></a>
                     </div>
-                    <div class="hero-trust">
-                        <i class="fas fa-check-circle"></i> Trusted by innovative organizations worldwide
-                    </div>
+
                 </div>
             </div>
+
+            <!-- Right 3D Visual with Images -->
             <div class="col-lg-6">
                 <div class="scene-container" id="scene">
                     <div class="isometric-box">
+                        <!-- SVG Connection Lines -->
                         <svg class="svg-lines" viewBox="0 0 620 440" aria-hidden="true">
                             <defs>
                                 <linearGradient id="heroLineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#2599B6"/>
-                                    <stop offset="100%" stop-color="#84B971"/>
+                                    <stop offset="0%" stop-color="#0061ff" />
+                                    <stop offset="100%" stop-color="#18b9f2" />
                                 </linearGradient>
                             </defs>
-                            <path d="M310 220 L112 92" class="line-path is-active" data-line="azure"/>
-                            <path d="M310 220 L508 92" class="line-path" data-line="aws"/>
-                            <path d="M310 220 L60 252" class="line-path" data-line="dc"/>
-                            <path d="M310 220 L560 242" class="line-path" data-line="branch"/>
-                            <path d="M310 220 L132 362" class="line-path" data-line="security"/>
-                            <path d="M310 220 L488 366" class="line-path" data-line="users"/>
+                            <path d="M310 220 L112 92" class="line-path is-active" data-line="azure" />
+                            <path d="M310 220 L508 92" class="line-path" data-line="aws" />
+                            <path d="M310 220 L60 252" class="line-path" data-line="dc" />
+                            <path d="M310 220 L560 242" class="line-path" data-line="branch" />
+                            <path d="M310 220 L132 362" class="line-path" data-line="security" />
+                            <path d="M310 220 L488 366" class="line-path" data-line="users" />
                         </svg>
-                        <div class="brand-node node-azure is-active" tabindex="0" role="button" data-key="azure" data-title="Microsoft Azure" data-copy="Hybrid Azure architecture for scalable apps, secure workloads, and cloud-ready infrastructure.">
+
+                        <!-- Azure Brand Node -->
+                        <div class="brand-node node-azure is-active" tabindex="0" role="button"
+                            data-key="azure" data-title="Microsoft Azure"
+                            data-copy="Hybrid Azure architecture for scalable apps, secure workloads, and cloud-ready infrastructure.">
                             <img src="assets/Azure.png" alt="Microsoft Azure">
                             <span class="brand-label">Microsoft Azure</span>
                         </div>
-                        <div class="brand-node node-aws" tabindex="0" role="button" data-key="aws" data-title="AWS Cloud" data-copy="Connect AWS services with automation, backups, monitoring, and resilient deployment patterns.">
+
+                        <!-- AWS Brand Node -->
+                        <div class="brand-node node-aws" tabindex="0" role="button" data-key="aws"
+                            data-title="AWS Cloud"
+                            data-copy="Connect AWS services with automation, backups, monitoring, and resilient deployment patterns.">
                             <img src="assets/AWS.png" alt="AWS">
                             <span class="brand-label">AWS</span>
                         </div>
+
                         <div class="cloud-platform">
+                            <!-- CENTER IMAGE -->
                             <div class="center-image-wrapper">
                                 <img src="assets/MainHub.png" alt="InfraSwift Central">
                             </div>
                         </div>
-                        <div class="node node-dc" tabindex="0" role="button" data-key="dc" data-title="Data Centers" data-copy="Modernize data centers with virtualization, storage, backup, observability, and automation.">
+
+                        <!-- Data Center Node -->
+                        <div class="node node-dc" tabindex="0" role="button" data-key="dc"
+                            data-title="Data Centers"
+                            data-copy="Modernize data centers with virtualization, storage, backup, observability, and automation.">
                             <div class="node-icon"><img src="assets/DataCenter.png" alt="Data Center"></div>
                             <span>Data Centers</span>
                         </div>
-                        <div class="node node-branch" tabindex="0" role="button" data-key="branch" data-title="Branch Offices" data-copy="Secure branches with connected networking, monitoring, remote support, and managed operations.">
+
+                        <!-- Branch Office Node -->
+                        <div class="node node-branch" tabindex="0" role="button" data-key="branch"
+                            data-title="Branch Offices"
+                            data-copy="Secure branches with connected networking, monitoring, remote support, and managed operations.">
                             <div class="node-icon"><img src="assets/BranchOffice.png" alt="Branch Office"></div>
                             <span>Branch Offices</span>
                         </div>
-                        <div class="node node-security" tabindex="0" role="button" data-key="security" data-title="Security Layer" data-copy="Policies, access control, threat visibility, and hardening across cloud and on-prem environments.">
+
+                        <!-- Security Node -->
+                        <div class="node node-security" tabindex="0" role="button" data-key="security"
+                            data-title="Security Layer"
+                            data-copy="Policies, access control, threat visibility, and hardening across cloud and on-prem environments.">
                             <div class="node-icon"><img src="assets/security.png" alt="Security"></div>
                             <span>Security</span>
                         </div>
-                        <div class="node node-users" tabindex="0" role="button" data-key="users" data-title="Users" data-copy="Fast, reliable access for teams with identity, endpoint, and collaboration services aligned.">
+
+                        <!-- Users Node -->
+                        <div class="node node-users" tabindex="0" role="button" data-key="users"
+                            data-title="Users"
+                            data-copy="Fast, reliable access for teams with identity, endpoint, and collaboration services aligned.">
                             <div class="node-icon"><img src="assets/users.png" alt="Users"></div>
                             <span>Users</span>
                         </div>
+
                         <div class="hero-info-card" aria-live="polite">
                             <strong id="heroInfoTitle">Microsoft Azure</strong>
                             <span id="heroInfoCopy">Hybrid Azure architecture for scalable apps, secure workloads, and cloud-ready infrastructure.</span>
@@ -628,136 +1659,32 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
 
-<!-- ══ TRUSTED PARTNERS ══ -->
-<section class="trusted-partners">
-    <div class="container">
-        <div class="partners-label">Powered by Technology Leaders</div>
-        <div class="marquee-wrap">
-            <div class="marquee-track" id="marqueeTrack">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg" alt="VMware" style="height:22px;">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/62/Fortinet_logo.svg" alt="Fortinet">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Red_Hat_Logo_2019.svg/3840px-Red_Hat_Logo_2019.svg.png" alt="Red Hat">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Veeam_Logo_Bounce_Oct23.png" alt="Veeam">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Microsoft">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg" alt="VMware" style="height:22px;">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/6/62/Fortinet_logo.svg" alt="Fortinet">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Red_Hat_Logo_2019.svg/3840px-Red_Hat_Logo_2019.svg.png" alt="Red Hat">
-                <img class="marquee-logo" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Veeam_Logo_Bounce_Oct23.png" alt="Veeam">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ══ SOLUTIONS HUB ══ -->
-<section class="hub-section">
-    <div class="container">
-        <div class="row g-4 align-items-start">
-            <div class="col-lg-3">
-                <div class="solutions-intro-col">
-                    <span class="section-eyebrow">End-to-End Solutions</span>
-                    <h2>Complete Solutions.<br>Measurable Impact.</h2>
-                    <p>From strategy and design to implementation and managed services, we deliver secure, scalable, and future-ready solutions tailored to your business.</p>
-                    <a href="#" class="link-arrow">Explore all solutions <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-9">
-                <div class="solutions-grid">
-                    <div class="sol-card">
-                        <i class="fas fa-cloud sol-icon"></i>
-                        <h5>Cloud Solutions</h5>
-                        <p>Azure, AWS, Hybrid Cloud, VMware Cloud Foundation</p>
-                    </div>
-                    <div class="sol-card">
-                        <i class="fas fa-server sol-icon"></i>
-                        <h5>Infrastructure Modernization</h5>
-                        <p>Datacenter Transformation, Virtualization, Storage &amp; Backup</p>
-                    </div>
-                    <div class="sol-card">
-                        <i class="fas fa-shield-halved sol-icon"></i>
-                        <h5>Cybersecurity</h5>
-                        <p>Zero Trust, SOC, IAM, Threat Protection</p>
-                    </div>
-                    <div class="sol-card">
-                        <i class="fas fa-network-wired sol-icon"></i>
-                        <h5>Networking Solutions</h5>
-                        <p>SD-WAN, Enterprise Networking, Wireless, Network Security</p>
-                    </div>
-                    <div class="sol-card">
-                        <i class="fas fa-headset sol-icon"></i>
-                        <h5>Managed Services</h5>
-                        <p>24/7 Monitoring, Support, IT Operations</p>
-                    </div>
-                    <div class="sol-card">
-                        <i class="fas fa-chart-line sol-icon"></i>
-                        <h5>IT Consulting</h5>
-                        <p>Strategy, Architecture, Digital Transformation</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ══ INDUSTRIES + SUCCESS STORY ══ -->
-<section class="industries-section">
-    <div class="container">
-        <div class="row g-4 align-items-stretch">
-            <div class="col-lg-6 d-flex flex-column">
-                <span class="ind-eyebrow">Industries We Serve</span>
-                <div class="industry-grid flex-grow-1">
-                    <a href="#" class="ind-card">
-                        <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?auto=format&fit=crop&w=400&q=80" alt="Banking">
-                        <div class="ind-content"><i class="fas fa-building-columns"></i><h5>Banking &amp; Financial Services</h5></div>
-                    </a>
-                    <a href="#" class="ind-card">
-                        <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=400&q=80" alt="Healthcare">
-                        <div class="ind-content"><i class="fas fa-heart-pulse"></i><h5>Healthcare</h5></div>
-                    </a>
-                    <a href="#" class="ind-card">
-                        <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=400&q=80" alt="Government">
-                        <div class="ind-content"><i class="fas fa-landmark"></i><h5>Government</h5></div>
-                    </a>
-                    <a href="#" class="ind-card">
-                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=400&q=80" alt="Manufacturing">
-                        <div class="ind-content"><i class="fas fa-industry"></i><h5>Manufacturing</h5></div>
-                    </a>
-                    <a href="#" class="ind-card">
-                        <img src="https://www.eurokidsindia.com/blog/wp-content/uploads/2023/11/innovative-learning-approaches-870x570.jpg" alt="Education">
-                        <div class="ind-content"><i class="fas fa-graduation-cap"></i><h5>Education</h5></div>
-                    </a>
-                    <a href="#" class="ind-card">
-                        <img src="https://innostax.com/wp-content/uploads/2024/02/Retail-Technology.webp" alt="Retail">
-                        <div class="ind-content"><i class="fas fa-basket-shopping"></i><h5>Retail</h5></div>
-                    </a>
-                </div>
-                <a href="#" class="link-arrow mt-2">View all industries <i class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="col-lg-6 d-flex flex-column">
-                <div class="story-wrap">
-                    <div class="story-card">
-                        <div class="story-img-wrap">
-                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Enterprise Building">
-                        </div>
-                        <div class="story-body">
-                            <span class="story-eyebrow">Featured Success Story</span>
-                            <h3>Hybrid Cloud Transformation<br>Drives 60% Faster Deployment</h3>
-                            <p>We helped a global enterprise modernize their infrastructure with VMware Cloud Foundation and Microsoft Azure, achieving unprecedented agility and efficiency.</p>
-                            <div class="story-stats">
-                                <div class="story-stat"><strong>60%</strong><span>Faster Deployment</span></div>
-                                <div class="story-stat"><strong>45%</strong><span>Reduction in Costs</span></div>
-                                <div class="story-stat"><strong>100%</strong><span>Improved Availability</span></div>
-                            </div>
-                            <a href="#" class="link-arrow">Read the full story <i class="fas fa-arrow-right"></i></a>
+        <!-- ====== TRUSTED PARTNERS ====== -->
+        <div class="row mt-3">
+            <div class="col-12">
+                <div class="trusted-partners-wrapper">
+                    <p class="">Trusted by innovative organizations worldwide</p>
+                    <div class="partner-marquee-container">
+                        <div class="partner-marquee-track">
+                            <!-- Group 1 -->
+                            <div class="partner-logo-box"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/microsoft.svg" alt="Microsoft"></div>
+                            <div class="partner-logo-box"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/vmware.svg" alt="VMware"></div>
+                            <div class="partner-logo-box"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/aws.svg" alt="AWS"></div>
+                            <div class="partner-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco"></div>
+                            <div class="partner-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell"></div>
+                            <div class="partner-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Fortinet_logo.svg" alt="Fortinet"></div>
+                            <div class="partner-logo-box"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/redhat.svg" alt="Red Hat"></div>
+                            <div class="partner-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Veeam_logo.png" alt="Veeam"></div>
+                            <!-- Group 2 (Duplicate for loop) -->
+                            <div class="partner-logo-box"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/microsoft.svg" alt="Microsoft"></div>
+                            <div class="partner-logo-box"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/vmware.svg" alt="VMware"></div>
+                            <div class="partner-logo-box"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/aws.svg" alt="AWS"></div>
+                            <div class="partner-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco"></div>
+                            <div class="partner-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell"></div>
+                            <div class="partner-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Fortinet_logo.svg" alt="Fortinet"></div>
+                            <div class="partner-logo-box"><img src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/redhat.svg" alt="Red Hat"></div>
+                            <div class="partner-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Veeam_logo.png" alt="Veeam"></div>
                         </div>
                     </div>
                 </div>
@@ -766,380 +1693,474 @@
     </div>
 </section>
 
-<!-- ══ STATS BAR ══ -->
-<section class="stats-bar">
-    <div class="container">
-        <div class="stats-grid">
-            <div class="stat-item"><i class="fas fa-rocket"></i><h4>100+</h4><p>Projects Delivered</p></div>
-            <div class="stat-item"><i class="fas fa-user-tie"></i><h4>50+</h4><p>Enterprise Clients</p></div>
-            <div class="stat-item"><i class="fas fa-handshake"></i><h4>10+</h4><p>Tech Partners</p></div>
-            <div class="stat-item"><i class="fas fa-shield-halved"></i><h4>99.9%</h4><p>Service Uptime</p></div>
-            <div class="stat-item"><i class="fas fa-clock"></i><h4>24x7</h4><p>Expert Support</p></div>
-        </div>
-    </div>
-</section>
-
-<!-- ══ TECHNOLOGY ECOSYSTEM ══ -->
-<section class="ecosystem-section">
-    <div class="container-fluid px-4">
-        <div class="row align-items-start">
-            <div class="col-lg-4">
-                <div class="eco-title-group">
-                    <span class="eco-eyebrow">Our Technology Ecosystem</span>
-                    <h3>Partnering with the best to deliver the best.</h3>
-                    <p>We collaborate with world-class technology leaders to provide innovative solutions that drive real results for your infrastructure.</p>
-                    <a href="#" class="link-arrow">View all technologies <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-8">
-                <div class="ecosystem-matrix">
-                    <div class="eco-category-column">
-                        <h5>Cloud</h5>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="Azure"></div>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS"></div>
-                    </div>
-                    <div class="eco-category-column">
-                        <h5>Virtualization</h5>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Vmware.svg" alt="VMware"></div>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" alt="Hyper-V"></div>
-                    </div>
-                    <div class="eco-category-column">
-                        <h5>Security</h5>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Fortinet_logo.svg" alt="Fortinet"></div>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Microsoft_Office_Defender_%282019-present%29.svg" alt="Defender"></div>
-                    </div>
-                    <div class="eco-category-column">
-                        <h5>Networking</h5>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Cisco_logo_blue_2016.svg" alt="Cisco"></div>
-                        <div class="eco-logo-box"><img src="https://logos-world.net/wp-content/uploads/2022/04/Aruba-Networks-Logo.png" alt="Aruba"></div>
-                    </div>
-                    <div class="eco-category-column">
-                        <h5>Storage</h5>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell"></div>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Veeam_Logo_Bounce_Oct23.png" alt="Veeam"></div>
-                    </div>
-                    <div class="eco-category-column">
-                        <h5>Systems</h5>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Red_Hat_Logo_2019.svg/3840px-Red_Hat_Logo_2019.svg.png" alt="Red Hat"></div>
-                        <div class="eco-logo-box"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Microsoft_Windows_Server_logo_%282012-2021%29.svg" alt="Windows Server"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ══ CTA BANNER ══ -->
-<section class="cta-banner-wrapper">
-    <div class="cta-inner">
-        <div class="cta-left">
-            <h2 class="cta-title">Ready to transform your IT environment?</h2>
-            <p class="cta-desc">Work with our elite engineers to build a secure, scalable, and future-ready digital infrastructure.</p>
-            <a href="#" class="btn-cta-white">
-                Schedule a Free Consultation <i class="fas fa-arrow-right"></i>
-            </a>
-        </div>
-        <div class="cta-right">
-            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=900&q=80" alt="Consulting Team">
-        </div>
-    </div>
-</section>
-
-<!-- ══ FOOTER ══ -->
-<footer class="site-footer">
-    <div class="container">
-        <div class="row gy-4">
-            <div class="col-lg-4 col-md-6 footer-brand">
-                <img src="assets/logo.png" alt="InfraSwift Technologies" height="54">
-                <p>Empowering businesses with innovative IT solutions to secure, scale, and accelerate their digital future.</p>
-                <div class="footer-socials">
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <h5 class="footer-heading">Solutions</h5>
-                <ul class="footer-links">
-                    <li><a href="#">Cloud Solutions</a></li>
-                    <li><a href="#">Infrastructure Modernization</a></li>
-                    <li><a href="#">Cybersecurity</a></li>
-                    <li><a href="#">Networking Solutions</a></li>
-                    <li><a href="#">Managed Services</a></li>
-                    <li><a href="#">IT Consulting</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <h5 class="footer-heading">Industries</h5>
-                <ul class="footer-links">
-                    <li><a href="#">Banking &amp; Financial</a></li>
-                    <li><a href="#">Healthcare</a></li>
-                    <li><a href="#">Government</a></li>
-                    <li><a href="#">Manufacturing</a></li>
-                    <li><a href="#">Education</a></li>
-                    <li><a href="#">Retail</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <h5 class="footer-heading">Company</h5>
-                <ul class="footer-links">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Partners</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <h5 class="footer-heading">Contact Us</h5>
-                <ul class="footer-contacts">
-                    <li><i class="fas fa-phone"></i><span>+92 21 3713 1111</span></li>
-                    <li><i class="fas fa-envelope"></i><span>info@infraswift.com</span></li>
-                    <li><i class="fas fa-location-dot"></i><span>Suite 501, Business Avenue, Block 6, PECHS, Karachi, Pakistan</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div>© 2026 InfraSwift Technologies. All rights reserved.</div>
-            <div class="footer-bottom-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-            </div>
-        </div>
-    </div>
-</footer>
-
-<div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script>
-/* ══════════════════════════════════════════════
-   HERO CANVAS — Advanced Particle Network
-   NOC-style glowing nodes + data-pulse lines
-══════════════════════════════════════════════ */
-(function(){
-    const canvas = document.getElementById('heroCanvas');
-    const ctx    = canvas.getContext('2d');
-    const hero   = document.getElementById('heroSection');
-
-    let W, H, nodes, pulses, mouse = { x: -9999, y: -9999 };
-    const NODE_COUNT   = 55;
-    const LINK_DIST    = 160;
-    const PULSE_SPEED  = 1.8;
-    const PRIMARY      = [37, 153, 182];    // #2599B6
-    const ACCENT       = [132, 185, 113];   // #84B971
-    const WHITE        = [255, 255, 255];
-
-    function resize(){
-        const r = hero.getBoundingClientRect();
-        W = canvas.width  = r.width;
-        H = canvas.height = r.height;
-    }
-
-    /* Node types: regular | hub | accent */
-    function makeNode(){
-        const t = Math.random();
-        const type = t < 0.08 ? 'hub' : t < 0.2 ? 'accent' : 'regular';
-        return {
-            x:  Math.random() * W,
-            y:  Math.random() * H,
-            vx: (Math.random() - 0.5) * 0.35,
-            vy: (Math.random() - 0.5) * 0.35,
-            r:  type === 'hub' ? 4.5 : type === 'accent' ? 3 : 2,
-            type,
-            pulse: Math.random() * Math.PI * 2,  // for ring animation
-            pulseSp: 0.03 + Math.random() * 0.02,
-        };
-    }
-
-    /* A data pulse that travels along an edge */
-    function spawnPulse(a, b){
-        return { ax: a.x, ay: a.y, bx: b.x, by: b.y, t: 0, col: Math.random() < 0.5 ? PRIMARY : ACCENT };
-    }
-
-    function init(){
-        resize();
-        nodes  = Array.from({ length: NODE_COUNT }, makeNode);
-        pulses = [];
-    }
-
-    function rgba(c, a){ return `rgba(${c[0]},${c[1]},${c[2]},${a})`; }
-
-    let frame = 0;
-    function draw(){
-        ctx.clearRect(0, 0, W, H);
-
-        /* ── edges ── */
-        for(let i = 0; i < nodes.length; i++){
-            for(let j = i+1; j < nodes.length; j++){
-                const dx = nodes[j].x - nodes[i].x;
-                const dy = nodes[j].y - nodes[i].y;
-                const d  = Math.sqrt(dx*dx + dy*dy);
-                if(d > LINK_DIST) continue;
-
-                const alpha = (1 - d / LINK_DIST) * 0.22;
-                ctx.strokeStyle = rgba(PRIMARY, alpha);
-                ctx.lineWidth   = 1;
-                ctx.beginPath();
-                ctx.moveTo(nodes[i].x, nodes[i].y);
-                ctx.lineTo(nodes[j].x, nodes[j].y);
-                ctx.stroke();
-
-                /* random pulse spawn every ~200 frames per edge */
-                if(frame % 200 === 0 && Math.random() < 0.06){
-                    pulses.push(spawnPulse(nodes[i], nodes[j]));
-                }
-            }
-        }
-
-        /* ── data pulses ── */
-        pulses = pulses.filter(p => {
-            p.t += PULSE_SPEED / Math.hypot(p.bx - p.ax, p.by - p.ay);
-            if(p.t > 1) return false;
-            const px = p.ax + (p.bx - p.ax) * p.t;
-            const py = p.ay + (p.by - p.ay) * p.t;
-
-            const grd = ctx.createRadialGradient(px, py, 0, px, py, 7);
-            grd.addColorStop(0, rgba(p.col, 0.9));
-            grd.addColorStop(1, rgba(p.col, 0));
-            ctx.fillStyle = grd;
-            ctx.beginPath();
-            ctx.arc(px, py, 7, 0, Math.PI * 2);
-            ctx.fill();
-            return true;
-        });
-
-        /* ── nodes ── */
-        nodes.forEach(n => {
-            n.pulse += n.pulseSp;
-
-            /* hub ring glow */
-            if(n.type === 'hub'){
-                const ringR  = n.r + 5 + Math.sin(n.pulse) * 3;
-                const ringA  = 0.12 + Math.sin(n.pulse) * 0.06;
-                ctx.strokeStyle = rgba(PRIMARY, ringA);
-                ctx.lineWidth   = 1.5;
-                ctx.beginPath();
-                ctx.arc(n.x, n.y, ringR + 6, 0, Math.PI * 2);
-                ctx.stroke();
-            }
-
-            /* glow halo */
-            const col = n.type === 'accent' ? ACCENT : PRIMARY;
-            const grd = ctx.createRadialGradient(n.x, n.y, 0, n.x, n.y, n.r * 5);
-            grd.addColorStop(0, rgba(col, 0.55));
-            grd.addColorStop(1, rgba(col, 0));
-            ctx.fillStyle = grd;
-            ctx.beginPath();
-            ctx.arc(n.x, n.y, n.r * 5, 0, Math.PI * 2);
-            ctx.fill();
-
-            /* core dot */
-            ctx.fillStyle = rgba(n.type === 'hub' ? WHITE : col, 0.85);
-            ctx.beginPath();
-            ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
-            ctx.fill();
-        });
-
-        /* ── mouse attraction ── */
-        nodes.forEach(n => {
-            const dx = mouse.x - n.x;
-            const dy = mouse.y - n.y;
-            const d  = Math.sqrt(dx*dx + dy*dy);
-            if(d < 140 && d > 1){
-                n.vx += (dx / d) * 0.04;
-                n.vy += (dy / d) * 0.04;
-            }
-            /* move + wrap */
-            n.x += n.vx;
-            n.y += n.vy;
-            /* damping */
-            n.vx *= 0.98;
-            n.vy *= 0.98;
-            /* wrap edges */
-            if(n.x < -20) n.x = W + 20;
-            if(n.x > W+20) n.x = -20;
-            if(n.y < -20) n.y = H + 20;
-            if(n.y > H+20) n.y = -20;
-        });
-
-        frame++;
-        requestAnimationFrame(draw);
-    }
-
-    /* track mouse inside hero */
-    hero.addEventListener('mousemove', e => {
-        const r = hero.getBoundingClientRect();
-        mouse.x = e.clientX - r.left;
-        mouse.y = e.clientY - r.top;
-    });
-    hero.addEventListener('mouseleave', () => { mouse.x = -9999; mouse.y = -9999; });
-
-    window.addEventListener('resize', () => { resize(); });
-
-    init();
-    draw();
-})();
-
-/* ══ Nav Toggle ══ */
-const $siteNav   = $('#siteNav');
-const $navToggle = $('#navToggle');
-$navToggle.on('click', function(e){
-    e.preventDefault();
-    $siteNav.toggleClass('nav-open');
-    const isOpen = $siteNav.hasClass('nav-open');
-    $(this).find('i').toggleClass('fa-bars', !isOpen).toggleClass('fa-xmark', isOpen);
-});
-$('.nav-menu a').on('click', function(){
-    $siteNav.removeClass('nav-open');
-    $navToggle.find('i').addClass('fa-bars').removeClass('fa-xmark');
-});
-
-/* ══ Mega Menu Mobile ══ */
-$('.mega-parent > a').on('click', function(e){
-    if($(window).width() < 992){ e.preventDefault(); $(this).parent().toggleClass('active'); }
-});
-
-/* ══ Hero Node Interaction ══ */
-const $targets = $('.node, .brand-node');
-const $lines   = $('.line-path');
-const $title   = $('#heroInfoTitle');
-const $copy    = $('#heroInfoCopy');
-function setActive($item){
-    const key = $item.data('key');
-    $targets.removeClass('is-active');
-    $item.addClass('is-active');
-    $lines.removeClass('is-active');
-    $lines.filter(`[data-line="${key}"]`).addClass('is-active');
-    $title.text($item.data('title'));
-    $copy.text($item.data('copy'));
+<style>
+/* ===== TRUSTED PARTNERS (Inside Hero) ===== */
+.trusted-partners-wrapper {
+    border-top: 1px solid rgba(0,0,0,0.04);
+    padding-top: 10px;
 }
-const $default = $('.brand-node.node-azure');
-if($default.length) setActive($default);
-$targets.on('mouseenter focus click', function(){ setActive($(this)); });
-$targets.on('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); setActive($(this)); } });
 
-/* ══ Scene 3D Tilt ══ */
-const $scene = $('.isometric-box');
-$('.scene-container').on('mousemove', function(e){
-    if($(window).width() < 992) return;
-    const r = this.getBoundingClientRect();
-    const x = (e.clientX - r.left)  / r.width  - 0.5;
-    const y = (e.clientY - r.top)   / r.height - 0.5;
-    $scene.css('transform', `translate(${x*16}px,${y*12}px) rotateX(${-y*2.5}deg) rotateY(${x*3.5}deg)`);
-}).on('mouseleave', function(){ $scene.css('transform','translate(0,0) rotateX(0) rotateY(0)'); });
+.trusted-label {
+    /* font-size: 0.7rem; */
+    /* font-weight: 700; */
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-bottom: 18px;
+}
 
-/* ══ Hero Aura Mouse ══ */
-$('.hero').on('mousemove', function(e){
-    const r = this.getBoundingClientRect();
-    this.style.setProperty('--mx', ((e.clientX-r.left)/r.width*100)+'%');
-    this.style.setProperty('--my', ((e.clientY-r.top)/r.height*100)+'%');
+.partner-marquee-container {
+    position: relative;
+    overflow: hidden;
+    padding: 2px 0;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.partner-marquee-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: marqueeScroll 30s linear infinite;
+    align-items: center;
+}
+
+.partner-marquee-container:hover .partner-marquee-track {
+    animation-play-state: paused;
+}
+
+.partner-logo-box {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.partner-logo-box img {
+    height: 22px;
+    width: auto;
+    object-fit: contain;
+    /* opacity: 0.6; */
+    transition: all 0.3s ease;
+    /* filter: grayscale(20%); */
+}
+
+.partner-logo-box:hover img {
+    opacity: 1;
+    transform: scale(1.08);
+    filter: grayscale(0%);
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+    .trusted-partners-wrapper {
+        padding-top: 20px;
+    }
+    .partner-marquee-track {
+        gap: 30px;
+    }
+    .partner-logo-box img {
+        height: 26px;
+    }
+}
+
+@media (max-width: 575px) {
+    .trusted-partners-wrapper {
+        padding-top: 15px;
+    }
+    .trusted-label {
+        font-size: 0.55rem;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+    }
+    .partner-marquee-track {
+        gap: 20px;
+    }
+    .partner-logo-box img {
+        height: 20px;
+    }
+}
+</style>
+
+  <!-- ======== SOLUTIONS ======== -->
+  <section id="solutions" class="py-5">
+    <div class="container py-2">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-4 reveal">
+          <p class="section-eyebrow mb-3">End-to-End Solutions</p>
+          <h2 class="fw-bold mb-3" style="font-size:2rem;letter-spacing:-.02em">Complete Solutions.<br>Measurable Impact.</h2>
+          <p style="color:var(--is-muted);line-height:1.65;font-size:.95rem;" class="mb-4">From strategy and design to implementation and managed services, we deliver secure, scalable, and future-ready solutions tailored to your business.</p>
+          <a href="#" class="text-blue fw-semibold d-inline-flex align-items-center gap-2">Explore all solutions <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="col-lg-8 reveal">
+          <div class="row g-0 solution-grid">
+            <div class="col-md-4 solution-item"><div class="icon-box"><i class="bi bi-cloud"></i></div><h6>Cloud Solutions</h6><p>Azure, AWS, Hybrid Cloud, VMware Cloud Foundation</p></div>
+            <div class="col-md-4 solution-item"><div class="icon-box"><i class="bi bi-hdd-stack"></i></div><h6>Infrastructure Modernization</h6><p>Datacenter Transformation, Virtualization, Storage & Backup</p></div>
+            <div class="col-md-4 solution-item"><div class="icon-box"><i class="bi bi-shield-check"></i></div><h6>Cybersecurity</h6><p>Zero Trust, SOC, IAM, Threat Protection</p></div>
+            <div class="col-md-4 solution-item"><div class="icon-box"><i class="bi bi-diagram-3"></i></div><h6>Networking Solutions</h6><p>SD-WAN, Enterprise Networking, Wireless, Network Security</p></div>
+            <div class="col-md-4 solution-item"><div class="icon-box"><i class="bi bi-headset"></i></div><h6>Managed Services</h6><p>24/7 Monitoring, Support, IT Operations</p></div>
+            <div class="col-md-4 solution-item"><div class="icon-box"><i class="bi bi-people"></i></div><h6>IT Consulting</h6><p>Strategy, Architecture, Digital Transformation</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== INDUSTRIES + SUCCESS ======== -->
+  <section id="industries" class="industries-section">
+    <div class="industries-inner">
+
+      <!-- LEFT: Industries — dark navy bg -->
+      <div class="industries-left reveal">
+        <p class="section-eyebrow mb-4 text-blue">Industries We Serve</p>
+        <div class="row g-3">
+          <div class="col-4"><div class="industry-card"><img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=600&auto=format&fit=crop" alt="Banking"><span class="label"><i class="bi bi-bank"></i>Banking & Financial Services</span></div></div>
+          <div class="col-4"><div class="industry-card"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=600&auto=format&fit=crop" alt="Healthcare"><span class="label"><i class="bi bi-heart-pulse"></i>Healthcare</span></div></div>
+          <div class="col-4"><div class="industry-card"><img src="https://images.unsplash.com/photo-1555848962-6e79363ec58f?q=80&w=600&auto=format&fit=crop" alt="Government"><span class="label"><i class="bi bi-building"></i>Government</span></div></div>
+          <div class="col-4"><div class="industry-card"><img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=600&auto=format&fit=crop" alt="Manufacturing"><span class="label"><i class="bi bi-gear-wide-connected"></i>Manufacturing</span></div></div>
+          <div class="col-4"><div class="industry-card"><img src="https://i.dawn.com/primary/2016/06/574f1ac03ab14.jpg" alt="Education"><span class="label"><i class="bi bi-mortarboard"></i>Education</span></div></div>
+          <div class="col-4"><div class="industry-card"><img src="https://images.unsplash.com/photo-1567958451986-2de427a4a0be?q=80&w=600&auto=format&fit=crop" alt="Retail"><span class="label"><i class="bi bi-bag"></i>Retail</span></div></div>
+        </div>
+        <a href="#" class="fw-semibold d-inline-flex align-items-center gap-2 mt-4 text-blue">View all industries <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      <!-- RIGHT: Success Story with full-bleed background image -->
+      <div class="industries-right" id="success">
+        <!-- Background image — fills entire right panel -->
+        <img class="success-bg-img"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop"
+          alt="Office building">
+        <!-- White fade from left so content is readable -->
+        <div class="success-bg-overlay"></div>
+
+        <!-- Content -->
+        <div class="success-left reveal">
+          <p class="section-eyebrow green mb-3">Featured Success Story</p>
+          <h3 class="fw-bold mb-3" style="font-size:1.5rem;letter-spacing:-.02em;">Hybrid Cloud Transformation Drives 60% Faster Deployment</h3>
+          <p style="color:var(--is-muted);line-height:1.65;font-size:.92rem;" class="mb-4">We helped a global enterprise modernize their infrastructure with VMware Cloud Foundation and Microsoft Azure, achieving unprecedented agility and efficiency.</p>
+
+          <!-- Stats with center dividers -->
+          <div class="stats-dividers mb-4">
+            <div class="stat-col">
+              <div class="stat-big">60%</div>
+              <div class="stat-label">Faster Deployment</div>
+            </div>
+            <div class="stat-col">
+              <div class="stat-big">45%</div>
+              <div class="stat-label">Reduction in Costs</div>
+            </div>
+            <div class="stat-col">
+              <div class="stat-big">100%</div>
+              <div class="stat-label">Improved Availability</div>
+            </div>
+          </div>
+
+          <a href="#" class="text-blue fw-semibold d-inline-flex align-items-center gap-2">Read the full story <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======== STATS BAR ======== -->
+  <section class="stats-bar">
+    <div class="container-fluid py-0">
+      <div class="row g-0 align-items-stretch">
+
+        <div class="col-6 col-md stat-item py-4 px-2 px-md-4">
+          <div class="d-flex align-items-center gap-3 justify-content-center justify-content-md-start">
+            <span class="ic-wrap ic-teal"><i class="bi bi-rocket-takeoff"></i></span>
+            <div><div class="num">100+</div><div class="lbl">Projects Delivered</div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md stat-item py-4 px-2 px-md-4">
+          <div class="d-flex align-items-center gap-3 justify-content-center justify-content-md-start">
+            <span class="ic-wrap ic-blue"><i class="bi bi-people"></i></span>
+            <div><div class="num">50+</div><div class="lbl">Enterprise Clients</div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md stat-item py-4 px-2 px-md-4">
+          <div class="d-flex align-items-center gap-3 justify-content-center justify-content-md-start">
+            <span class="ic-wrap ic-green"><i class="bi bi-arrow-left-right"></i></span>
+            <div><div class="num">10+</div><div class="lbl">Technology Partners</div></div>
+          </div>
+        </div>
+
+        <div class="col-6 col-md stat-item py-4 px-2 px-md-4">
+          <div class="d-flex align-items-center gap-3 justify-content-center justify-content-md-start">
+            <span class="ic-wrap ic-sky"><i class="bi bi-shield-check"></i></span>
+            <div><div class="num">99.9%</div><div class="lbl">Service Availability</div></div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md stat-item py-4 px-2 px-md-4">
+          <div class="d-flex align-items-center gap-3 justify-content-center justify-content-md-start">
+            <span class="ic-wrap ic-cyan"><i class="bi bi-clock-history"></i></span>
+            <div><div class="num">24x7</div><div class="lbl">Support Coverage</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== TECH ECOSYSTEM ======== -->
+  <section id="tech" class="tech-section p-4 ">
+    <div class="container-fluid">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-3 reveal">
+          <p class="section-eyebrow mb-3">Our Technology Ecosystem</p>
+          <h3 class="fw-bold mb-3" style="font-size:1.45rem;letter-spacing:-.02em;">Partnering with the best to deliver the best.</h3>
+          <p style="color:var(--is-muted);font-size:.9rem;line-height:1.65;" class="mb-4">We collaborate with world-class technology leaders to provide innovative solutions that drive real results.</p>
+          <a href="#" class="text-blue fw-semibold d-inline-flex align-items-center gap-2">View all technologies <i class="bi bi-arrow-right"></i></a>
+        </div>
+        <div class="col-lg-9 reveal">
+          <div class="tech-logo-row">
+
+            <!-- Cloud -->
+            <div class="tech-col">
+              <div class="tech-col-title">Cloud</div>
+              <img class="tech-logo" src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/microsoft-azure.svg" alt="Microsoft Azure">
+              <img class="tech-logo" src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/aws.svg" alt="AWS">
+
+            </div>
+
+            <div class="tech-col">
+              <div class="tech-col-title">Virtualization</div>
+              <img class="tech-logo" src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/vmware.svg" alt="VMware">
+              <img class="tech-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png"  alt="MS">
+
+              
+            </div>
+
+            <div class="tech-col">
+              <div class="tech-col-title">Security</div>
+              <img class="tech-logo" src="https://www.securosys.com/hs-fs/hubfs/fortinet-logo-rgb-black-red.png?width=2436&height=668&name=fortinet-logo-rgb-black-red.png" alt="Fortinet">
+              <img class="tech-logo" src="https://avantustraining.com/wp-content/uploads/2022/10/ms-securitylogostackedc-grayrgb-hero-copy-small_2-3-1024x323.webp"  alt="MS">
+
+            </div>
+
+            <div class="tech-col">
+              <div class="tech-col-title">Networking</div>
+              <img class="tech-logo" src="https://www.firefly.cloud/wp-content/uploads/2025/04/Cisco_v2_Logo.jpg" alt="Cisco">
+              <img class="tech-logo" src="https://invitenetworks.com/wp-content/uploads/2024/06/hpe_aruba_orange_pos_rgb-2048x681-1.webp" alt="Aruba HPE">
+
+            </div>
+
+            <div class="tech-col">
+              <div class="tech-col-title">Storage & Backup</div>
+              <img class="tech-logo" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Dell_Logo.png" alt="Dell">
+              <img class="tech-logo" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Veeam_logo.png" alt="Veeam">
+            
+            </div>
+
+            <div class="tech-col">
+              <div class="tech-col-title">Operating Systems</div>
+              <img class="tech-logo" src="https://cdn.jsdelivr.net/gh/gilbarbara/logos/logos/redhat.svg" alt="Red Hat">
+                <img class="tech-logo" src="https://upload.wikimedia.org/wikipedia/commons/d/db/Windows_Server.png"  alt="MS">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== CTA ======== -->
+  <section id="cta" class="cta-section py-5">
+    <img class="cta-bg-img d-none d-lg-block"
+      src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop"
+      alt="Team">
+    <div class="container py-3" style="position:relative;z-index:2;">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-7 reveal">
+          <h2 class="mb-2">Ready to transform your IT environment?</h2>
+          <p class="mb-0" style="opacity:.85;font-size:.97rem;">Let our experts help you build a secure, scalable, and future-ready infrastructure.</p>
+        </div>
+        <div class="col-lg-5 text-lg-end reveal">
+          <a href="#" class="btn-cta">Schedule a Free Consultation <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOOTER ======== -->
+  <footer class="site-footer pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4">
+
+        <!-- Brand col -->
+        <div class="col-lg-4 col-md-6">
+                    <img src="assets/logo.png" alt="InfraSwift Technologies" height="74px">
+         
+          <p style="font-size:.88rem;max-width:22rem;line-height:1.65;color:#9fb0cf;">Empowering businesses with innovative IT solutions to secure, scale and accelerate their digital future.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#" class="social-ic"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="social-ic"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="social-ic"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="social-ic"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Solutions -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <div class="f-title">Solutions</div>
+          <a class="f-link" href="#">Cloud Solutions</a>
+          <a class="f-link" href="#">Infrastructure Modernization</a>
+          <a class="f-link" href="#">Cybersecurity</a>
+          <a class="f-link" href="#">Networking Solutions</a>
+          <a class="f-link" href="#">Managed Services</a>
+          <a class="f-link" href="#">IT Consulting</a>
+        </div>
+
+        <!-- Industries -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <div class="f-title">Industries</div>
+          <a class="f-link" href="#">Banking & Financial Services</a>
+          <a class="f-link" href="#">Healthcare</a>
+          <a class="f-link" href="#">Government</a>
+          <a class="f-link" href="#">Manufacturing</a>
+          <a class="f-link" href="#">Education</a>
+          <a class="f-link" href="#">Retail</a>
+        </div>
+
+        <!-- Resources -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <div class="f-title">Resources</div>
+          <a class="f-link" href="#">Blog</a>
+          <a class="f-link" href="#">Case Studies</a>
+          <a class="f-link" href="#">Whitepapers</a>
+          <a class="f-link" href="#">Webinars</a>
+          <a class="f-link" href="#">Events</a>
+        </div>
+
+        <!-- Company + Contact -->
+        <div class="col-6 col-lg-2 col-md-3">
+          <div class="f-title">Company</div>
+          <a class="f-link" href="#">About Us</a>
+          <a class="f-link" href="#">Our Team</a>
+          <a class="f-link" href="#">Careers</a>
+          <a class="f-link" href="#">Partners</a>
+          <a class="f-link" href="#">Contact Us</a>
+        </div>
+
+      </div>
+
+      <!-- Contact strip -->
+      <div class="row mt-4 pt-4" style="border-top:1px solid rgba(255,255,255,.08);">
+        <div class="col-12">
+          <div class="f-title mb-2">Contact Us</div>
+          <div class="d-flex flex-wrap gap-3 gap-md-4">
+            <a class="f-link d-inline-flex align-items-center gap-2" href="tel:+922137131111"><i class="bi bi-telephone-fill"></i>+92 21 3713 1111</a>
+            <a class="f-link d-inline-flex align-items-center gap-2" href="mailto:info@infraswift.com"><i class="bi bi-envelope-fill"></i>info@infraswift.com</a>
+            <a class="f-link d-inline-flex align-items-center gap-2" href="#"><i class="bi bi-geo-alt-fill"></i>Suite 501, Business Avenue, Block 6, PECHS, Karachi, Pakistan</a>
+          </div>
+        </div>
+      </div>
+
+      <hr style="border-color:rgba(255,255,255,.09);margin:1.5rem 0 1rem;">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <small style="color:#9fb0cf;">© 2024 InfraSwift Technologies (Pvt.) Ltd. All Rights Reserved.</small>
+        <div class="d-flex gap-3">
+          <a class="f-link" style="font-size:.8rem;" href="#">Privacy Policy</a>
+          <a class="f-link" style="font-size:.8rem;" href="#">Terms of Use</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back To Top -->
+  <button id="backToTop" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    $(function () {
+      // Navbar shadow
+      $(window).on('scroll', function () {
+        var s = $(this).scrollTop();
+        $('.navbar').toggleClass('scrolled', s > 30);
+        $('#backToTop').toggleClass('show', s > 400);
+      });
+
+      // Reveal on scroll
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+      // Back to top
+      $('#backToTop').on('click', function () {
+        $('html,body').animate({ scrollTop: 0 }, 500);
+      });
+
+      // Mobile menu close on link click
+      $('#mainNav .nav-link:not(.dropdown-toggle), #mainNav .dropdown-item, .btn-expert').on('click', function () {
+        var c = document.querySelector('#mainNav');
+        if (c && c.classList.contains('show')) new bootstrap.Collapse(c).hide();
+      });
+    });
+  </script>
+  <script>
+$(function() {
+    // Hero Scene Interaction
+    const $scene = $('.isometric-box');
+    const $targets = $('.node, .brand-node');
+    const $lines = $('.line-path');
+    const $title = $('#heroInfoTitle');
+    const $copy = $('#heroInfoCopy');
+
+    function setActive($item) {
+        const key = $item.data('key');
+        $targets.removeClass('is-active');
+        $item.addClass('is-active');
+        $lines.removeClass('is-active');
+        $lines.filter(`[data-line="${key}"]`).addClass('is-active');
+        $title.text($item.data('title'));
+        $copy.text($item.data('copy'));
+    }
+
+    // Hover, Click, Focus events
+    $targets.on('mouseenter click focus', function() {
+        setActive($(this));
+    });
+
+    // Keyboard support
+    $targets.on('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setActive($(this));
+        }
+    });
+
+    // Parallax effect on scene
+    $('.scene-container').on('mousemove', function(e) {
+        if ($(window).width() < 992) return;
+        const rect = this.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        $scene.css('transform', `translate(${x * 18}px, ${y * 14}px) rotateX(${-y * 3}deg) rotateY(${x * 4}deg)`);
+    }).on('mouseleave', function() {
+        $scene.css('transform', 'translate(0, 0) rotateX(0) rotateY(0)');
+    });
+
+    // Set initial active state
+    const initial = $('.brand-azure');
+    if (initial.length) setActive(initial);
 });
-
-/* ══ Back to Top ══ */
-$(window).on('scroll', function(){ $('#backToTop').toggleClass('active', $(window).scrollTop() > 400); });
-$('#backToTop').on('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
 </script>
 </body>
 </html>
